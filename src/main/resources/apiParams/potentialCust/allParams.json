@@ -1,0 +1,1338 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Api Documentation",
+    "version": "1.0",
+    "title": "Api Documentation",
+    "termsOfService": "urn:tos",
+    "contact": {
+
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "host": "localhost:8080",
+  "tags": [
+    {
+      "name": "basic-error-controller",
+      "description": "Basic Error Controller"
+    },
+    {
+      "name": "test-controller",
+      "description": "Test Controller"
+    }
+  ],
+  "paths": {
+    "/test/": {
+      "post": {
+        "tags": [
+          "test-controller"
+        ],
+        "summary": "testApi",
+        "operationId": "testUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "potentialRecordDto",
+            "description": "potentialRecordDto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/潜客DTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RestResultResponse«潜客跟进保存并跟进DTO»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/test/error": {
+      "get": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "errorHtml",
+        "operationId": "errorHtmlUsingGET",
+        "produces": [
+          "text/html"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ModelAndView"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "head": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "errorHtml",
+        "operationId": "errorHtmlUsingHEAD",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/html"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ModelAndView"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "errorHtml",
+        "operationId": "errorHtmlUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/html"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ModelAndView"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "errorHtml",
+        "operationId": "errorHtmlUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/html"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ModelAndView"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "errorHtml",
+        "operationId": "errorHtmlUsingDELETE",
+        "produces": [
+          "text/html"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ModelAndView"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "options": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "errorHtml",
+        "operationId": "errorHtmlUsingOPTIONS",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/html"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ModelAndView"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "errorHtml",
+        "operationId": "errorHtmlUsingPATCH",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/html"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ModelAndView"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CompetitorDTO": {
+      "type": "object",
+      "properties": {
+        "competitor": {
+          "type": "string",
+          "description": "String类型的竞品关注点"
+        },
+        "competitorConcerns": {
+          "type": "string",
+          "description": "竞品关注点"
+        },
+        "competitorId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "竞品ID"
+        },
+        "competitorList": {
+          "type": "array",
+          "description": "竞品关注点LIST",
+          "items": {
+            "$ref": "#/definitions/PcBasedataDTO"
+          }
+        },
+        "competitorRemark": {
+          "type": "string",
+          "description": "竞品分析"
+        },
+        "customerBusinessId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "商机ID"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "failBrand": {
+          "type": "string",
+          "description": "品牌"
+        },
+        "failModelId": {
+          "type": "string",
+          "description": "战败竞品表ID"
+        },
+        "failSeries": {
+          "type": "string",
+          "description": "车型车系"
+        },
+        "isValid": {
+          "type": "string",
+          "description": "是否有效"
+        },
+        "level": {
+          "type": "integer",
+          "format": "int32",
+          "description": "级别1：品牌，2：车系车型，等等"
+        },
+        "parentId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "父级id"
+        }
+      },
+      "title": "CompetitorDTO"
+    },
+    "CustomerContactinfoDTO": {
+      "type": "object",
+      "properties": {
+        "contactId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "联系人id"
+        },
+        "contactMethod": {
+          "type": "integer",
+          "format": "int32",
+          "description": "联系方式（手机、固话、微信、QQ、E-mail、上门拜访）"
+        },
+        "contactName": {
+          "type": "string",
+          "description": "联系人"
+        },
+        "contactRelation": {
+          "type": "integer",
+          "format": "int32",
+          "description": "联系人关系（夫妻、父子、母女、姐妹、兄弟、老板、员工）"
+        },
+        "contactRemark": {
+          "type": "string",
+          "description": "联系人备注"
+        },
+        "contactTime": {
+          "type": "integer",
+          "format": "int32",
+          "description": "联系时间（上午、中午、下午、傍晚）"
+        },
+        "contactType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "联系类型（回访联系人、用车联系人、开票联系人、提车联系人、合同联系人） 7034"
+        },
+        "contactorMobile": {
+          "type": "string",
+          "description": "联系人手机"
+        },
+        "contactorPhone": {
+          "type": "string",
+          "description": "联系人电话"
+        },
+        "customerBusinessId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "商机id"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "gender": {
+          "type": "integer",
+          "format": "int32",
+          "description": "男，女, 未知"
+        },
+        "isMain": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否主联系人"
+        },
+        "potentialCustomersId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "CustomerContactinfoDTO"
+    },
+    "IntentDTO": {
+      "type": "object",
+      "properties": {
+        "clueIntentId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "意向车型 id"
+        },
+        "colorId": {
+          "type": "string",
+          "description": "外色"
+        },
+        "colorName": {
+          "type": "string",
+          "description": "外色名称"
+        },
+        "colorNameZh": {
+          "type": "string",
+          "description": "外色名称"
+        },
+        "customerBusinessId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "商机id"
+        },
+        "firstId": {
+          "type": "string",
+          "description": "第一级id:意向品牌"
+        },
+        "firstNameZh": {
+          "type": "string",
+          "description": "意向品牌名称"
+        },
+        "fiveId": {
+          "type": "string",
+          "description": "第五级id:意向配置"
+        },
+        "fiveNameZh": {
+          "type": "string",
+          "description": "第五级名称"
+        },
+        "fourthId": {
+          "type": "string",
+          "description": "第四级id:意向配置"
+        },
+        "fourthNameZh": {
+          "type": "string",
+          "description": "意向配置名称"
+        },
+        "fullName": {
+          "type": "string",
+          "description": "拼接的车系名称"
+        },
+        "isDeleted": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否删除"
+        },
+        "isMainIntent": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否主意向：1004"
+        },
+        "level": {
+          "type": "integer",
+          "format": "int32",
+          "description": "物料级别"
+        },
+        "materialId": {
+          "type": "string",
+          "description": "物料id"
+        },
+        "materialNameZh": {
+          "type": "string",
+          "description": "物料名称"
+        },
+        "optionId": {
+          "type": "array",
+          "description": "选装包",
+          "items": {
+            "type": "string"
+          }
+        },
+        "optionName": {
+          "type": "string",
+          "description": "选装包名称拼接"
+        },
+        "optionNameZh": {
+          "type": "string",
+          "description": "选装包名称拼接"
+        },
+        "ownerCode": {
+          "type": "string",
+          "description": "所有者代码"
+        },
+        "remark": {
+          "type": "string",
+          "description": "备注"
+        },
+        "salesOptionDTOS": {
+          "type": "array",
+          "description": "意向选装",
+          "items": {
+            "$ref": "#/definitions/SalesOptionDTO"
+          }
+        },
+        "secondId": {
+          "type": "string",
+          "description": "第二级id:意向车系"
+        },
+        "secondNameZh": {
+          "type": "string",
+          "description": "意向车系名称"
+        },
+        "thirdId": {
+          "type": "string",
+          "description": "第三级id:意向车型"
+        },
+        "thirdNameZh": {
+          "type": "string",
+          "description": "意向车型名称"
+        },
+        "trimId": {
+          "type": "string",
+          "description": "内饰"
+        },
+        "trimName": {
+          "type": "string",
+          "description": "内饰名称"
+        },
+        "trimNameZh": {
+          "type": "string",
+          "description": "内饰名称"
+        }
+      },
+      "title": "IntentDTO"
+    },
+    "KeepingVehiclesDTO": {
+      "type": "object",
+      "properties": {
+        "boughtCarsAge": {
+          "type": "string",
+          "description": "已购车龄"
+        },
+        "buyDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "购买日期"
+        },
+        "customerBusinessId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "商机ID"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "drivingMileage": {
+          "type": "string",
+          "description": "行驶里程"
+        },
+        "keepVehiclesBrand": {
+          "type": "string",
+          "description": "品牌"
+        },
+        "keepVehiclesId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "保有车辆ID"
+        },
+        "keepVehiclesModel": {
+          "type": "string",
+          "description": "车型"
+        },
+        "keepVehiclesSeries": {
+          "type": "string",
+          "description": "车系"
+        },
+        "keepingRemark": {
+          "type": "string",
+          "description": "备注"
+        },
+        "vin": {
+          "type": "string",
+          "description": "VIN"
+        }
+      },
+      "title": "KeepingVehiclesDTO"
+    },
+    "ModelAndView": {
+      "type": "object",
+      "properties": {
+        "empty": {
+          "type": "boolean"
+        },
+        "model": {
+          "type": "object"
+        },
+        "modelMap": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "reference": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ACCEPTED",
+            "ALREADY_REPORTED",
+            "BAD_GATEWAY",
+            "BAD_REQUEST",
+            "BANDWIDTH_LIMIT_EXCEEDED",
+            "CHECKPOINT",
+            "CONFLICT",
+            "CONTINUE",
+            "CREATED",
+            "DESTINATION_LOCKED",
+            "EXPECTATION_FAILED",
+            "FAILED_DEPENDENCY",
+            "FORBIDDEN",
+            "FOUND",
+            "GATEWAY_TIMEOUT",
+            "GONE",
+            "HTTP_VERSION_NOT_SUPPORTED",
+            "IM_USED",
+            "INSUFFICIENT_SPACE_ON_RESOURCE",
+            "INSUFFICIENT_STORAGE",
+            "INTERNAL_SERVER_ERROR",
+            "I_AM_A_TEAPOT",
+            "LENGTH_REQUIRED",
+            "LOCKED",
+            "LOOP_DETECTED",
+            "METHOD_FAILURE",
+            "METHOD_NOT_ALLOWED",
+            "MOVED_PERMANENTLY",
+            "MOVED_TEMPORARILY",
+            "MULTIPLE_CHOICES",
+            "MULTI_STATUS",
+            "NETWORK_AUTHENTICATION_REQUIRED",
+            "NON_AUTHORITATIVE_INFORMATION",
+            "NOT_ACCEPTABLE",
+            "NOT_EXTENDED",
+            "NOT_FOUND",
+            "NOT_IMPLEMENTED",
+            "NOT_MODIFIED",
+            "NO_CONTENT",
+            "OK",
+            "PARTIAL_CONTENT",
+            "PAYLOAD_TOO_LARGE",
+            "PAYMENT_REQUIRED",
+            "PERMANENT_REDIRECT",
+            "PRECONDITION_FAILED",
+            "PRECONDITION_REQUIRED",
+            "PROCESSING",
+            "PROXY_AUTHENTICATION_REQUIRED",
+            "REQUESTED_RANGE_NOT_SATISFIABLE",
+            "REQUEST_ENTITY_TOO_LARGE",
+            "REQUEST_HEADER_FIELDS_TOO_LARGE",
+            "REQUEST_TIMEOUT",
+            "REQUEST_URI_TOO_LONG",
+            "RESET_CONTENT",
+            "SEE_OTHER",
+            "SERVICE_UNAVAILABLE",
+            "SWITCHING_PROTOCOLS",
+            "TEMPORARY_REDIRECT",
+            "TOO_EARLY",
+            "TOO_MANY_REQUESTS",
+            "UNAUTHORIZED",
+            "UNAVAILABLE_FOR_LEGAL_REASONS",
+            "UNPROCESSABLE_ENTITY",
+            "UNSUPPORTED_MEDIA_TYPE",
+            "UPGRADE_REQUIRED",
+            "URI_TOO_LONG",
+            "USE_PROXY",
+            "VARIANT_ALSO_NEGOTIATES"
+          ]
+        },
+        "view": {
+          "$ref": "#/definitions/View"
+        },
+        "viewName": {
+          "type": "string"
+        }
+      },
+      "title": "ModelAndView"
+    },
+    "PcBasedataDTO": {
+      "type": "object",
+      "properties": {
+        "basedataCode": {
+          "type": "string",
+          "description": "基础数据代码"
+        },
+        "basedataDescribe": {
+          "type": "string",
+          "description": "基础数据描述"
+        },
+        "basedataId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "基础数据ID"
+        },
+        "basedataName": {
+          "type": "string",
+          "description": "基础数据名称"
+        },
+        "basedataRelateId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "基础数据关联ID"
+        },
+        "basedataType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "基础数据类型 1234 购车因素  1608 了解途径"
+        },
+        "dataSources": {
+          "type": "integer",
+          "format": "int64",
+          "description": "数据来源"
+        },
+        "dealerCode": {
+          "type": "string",
+          "description": "经销商代码"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "isValid": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否有效"
+        }
+      },
+      "title": "PcBasedataDTO"
+    },
+    "RestResultResponse«潜客跟进保存并跟进DTO»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/潜客跟进保存并跟进DTO"
+        },
+        "elapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "errMsg": {
+          "type": "string"
+        },
+        "resultCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "RestResultResponse«潜客跟进保存并跟进DTO»"
+    },
+    "SalesOptionDTO": {
+      "type": "object",
+      "properties": {
+        "accountMode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "销售、免费赠送、车价已包含"
+        },
+        "clueIntentId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "意向列表ID"
+        },
+        "optionAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "选装报价"
+        },
+        "optionId": {
+          "type": "string",
+          "description": "选装ID"
+        },
+        "optionPrice": {
+          "type": "number",
+          "format": "double",
+          "description": "选装价格"
+        },
+        "optionQuantity": {
+          "type": "number",
+          "format": "double",
+          "description": "选装数量"
+        },
+        "optionType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "选装类型(包括产品选择属性，精品包)"
+        },
+        "parentOptionId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "父类id(如果是套餐包中的套餐则该字段有值)"
+        },
+        "salesOptionId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "意向选装id"
+        },
+        "salesOptionName": {
+          "type": "string",
+          "description": "意向选装name"
+        }
+      },
+      "title": "SalesOptionDTO"
+    },
+    "View": {
+      "type": "object",
+      "properties": {
+        "contentType": {
+          "type": "string"
+        }
+      },
+      "title": "View"
+    },
+    "潜客DTO": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "description": "地址"
+        },
+        "area": {
+          "type": "string",
+          "description": "区"
+        },
+        "areaName": {
+          "type": "string",
+          "description": "区名称"
+        },
+        "arriveDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "到店时间"
+        },
+        "avocation": {
+          "type": "string",
+          "description": "兴趣爱好 7032"
+        },
+        "birthday": {
+          "type": "string",
+          "format": "date-time",
+          "description": "出生日期"
+        },
+        "bookingDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "预计购车日期"
+        },
+        "boughtCars": {
+          "type": "string",
+          "description": "已购买车型"
+        },
+        "boughtCarsAge": {
+          "type": "string",
+          "description": "已购车龄"
+        },
+        "businessAnaly": {
+          "type": "string",
+          "description": "商机分析,以逗号分割"
+        },
+        "businessClassify": {
+          "type": "integer",
+          "format": "int32",
+          "description": "业务分类"
+        },
+        "buyCarFactorList": {
+          "type": "array",
+          "description": "购车因素",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "buyCarUse": {
+          "type": "integer",
+          "format": "int64",
+          "description": "购车用途 1514"
+        },
+        "buyNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "购买台次"
+        },
+        "buyType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "购买方式 购买类型 （首购、增购、置换）7015"
+        },
+        "carBudget": {
+          "type": "integer",
+          "format": "int32",
+          "description": "购车预算"
+        },
+        "certificateNo": {
+          "type": "string",
+          "description": "证件号码"
+        },
+        "childrenNumber": {
+          "type": "integer",
+          "format": "int32",
+          "description": "子女数量"
+        },
+        "city": {
+          "type": "string",
+          "description": "市"
+        },
+        "cityName": {
+          "type": "string",
+          "description": "市名称"
+        },
+        "clueEnterType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "线索类型 7019"
+        },
+        "clueRecordId": {
+          "type": "integer",
+          "format": "int32",
+          "description": "线索id，查重时如果返回线索信息，需要传"
+        },
+        "clueSourceId": {
+          "type": "string",
+          "description": "线索来源"
+        },
+        "clueSourceRemark": {
+          "type": "string",
+          "description": "来源备注"
+        },
+        "competitor": {
+          "type": "string",
+          "description": "竞争品牌"
+        },
+        "competitorDTOList": {
+          "type": "array",
+          "description": "竞品信息",
+          "items": {
+            "$ref": "#/definitions/CompetitorDTO"
+          }
+        },
+        "consultant": {
+          "type": "string",
+          "description": "专属销售顾问"
+        },
+        "contactName": {
+          "type": "string",
+          "description": "联系人名称"
+        },
+        "ctCode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "证件类型：身份证、护照、机构代码、军官证、士兵证、警官证、其他 1508"
+        },
+        "customerBusinessId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "商机id"
+        },
+        "customerContactinfoDTOList": {
+          "type": "array",
+          "description": "联系人信息",
+          "items": {
+            "$ref": "#/definitions/CustomerContactinfoDTO"
+          }
+        },
+        "customerFrom": {
+          "type": "string",
+          "description": "客户来源"
+        },
+        "customerName": {
+          "type": "string",
+          "description": "客户名称"
+        },
+        "customerType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "客户类型:个人、公司"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "displacementInfo": {
+          "type": "string",
+          "description": "置换信息"
+        },
+        "drivingNumber": {
+          "type": "integer",
+          "format": "int32",
+          "description": "日常驾乘人数"
+        },
+        "eMail": {
+          "type": "string",
+          "description": "E_MAIL"
+        },
+        "educationalLevel": {
+          "type": "integer",
+          "format": "int32",
+          "description": "教育水平:小学、初中、高中/中专/技校、大专、本科、硕士及以上 7027"
+        },
+        "enterpriseType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "企业性质 机关、事业、企业、运营、公检司法、其它。7029"
+        },
+        "expectedCarDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "期望用车日期"
+        },
+        "familyCon": {
+          "type": "string",
+          "description": "家庭情况"
+        },
+        "familyInCome": {
+          "type": "integer",
+          "format": "int32",
+          "description": "家庭年收入（万元）正整数"
+        },
+        "familyNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "家庭人数 正整数"
+        },
+        "favoriteDrinks": {
+          "type": "integer",
+          "format": "int32",
+          "description": "钟爱饮料 7033"
+        },
+        "firstOrderTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "第一次下单时间"
+        },
+        "gender": {
+          "type": "integer",
+          "format": "int32",
+          "description": "性别，tc_code类型为1002"
+        },
+        "haveChildren": {
+          "type": "string",
+          "description": "是否有子女 10041001"
+        },
+        "imChannel": {
+          "type": "string",
+          "description": "IM渠道编号"
+        },
+        "imClueRecordId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "C端IM编号"
+        },
+        "industry": {
+          "type": "integer",
+          "format": "int32",
+          "description": "所属行业:互联网/IT/电子/通信；广告/传媒/文化/体育；金融；教育培训；制药/医疗；交通/物流/贸易/零售；专业服务；房地产/建筑；汽车；机械/制造；消费品；服务业；能源/化工/环保；政府/非盈利机构/其他 7030"
+        },
+        "intentBrand": {
+          "type": "integer",
+          "format": "int32",
+          "description": "意向品牌"
+        },
+        "intentColor": {
+          "type": "integer",
+          "format": "int32",
+          "description": "意向颜色"
+        },
+        "intentDTOList": {
+          "type": "array",
+          "description": "意向车型",
+          "items": {
+            "$ref": "#/definitions/IntentDTO"
+          }
+        },
+        "intentLevel": {
+          "type": "integer",
+          "format": "int32",
+          "description": "意向级别"
+        },
+        "intentModel": {
+          "type": "integer",
+          "format": "int32",
+          "description": "意向车型"
+        },
+        "intentPackage": {
+          "type": "integer",
+          "format": "int32",
+          "description": "意向配置"
+        },
+        "intentSeries": {
+          "type": "integer",
+          "format": "int32",
+          "description": "意向车系"
+        },
+        "introducCustomerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "转介绍客户(选取已成交的客户)"
+        },
+        "isBigCustomer": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否大客户"
+        },
+        "isDormant": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否休眠客户"
+        },
+        "isFollow": {
+          "type": "integer",
+          "format": "int64",
+          "description": "区分保存并跟进"
+        },
+        "keepingVehiclesDTOList": {
+          "type": "array",
+          "description": "保有车辆",
+          "items": {
+            "$ref": "#/definitions/KeepingVehiclesDTO"
+          }
+        },
+        "likeContactWay": {
+          "type": "integer",
+          "format": "int32",
+          "description": "喜欢的联系方式"
+        },
+        "liveType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "居住地类型"
+        },
+        "maritalStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "婚姻状况:未婚、已婚、离异 7028"
+        },
+        "marketActivity": {
+          "type": "string",
+          "description": "市场活动"
+        },
+        "marketActivityId": {
+          "type": "string",
+          "description": "市场活动"
+        },
+        "mobilePhone": {
+          "type": "string",
+          "description": "手机号码"
+        },
+        "oneId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "唯一id"
+        },
+        "openId": {
+          "type": "string",
+          "description": "微信ID"
+        },
+        "openidName": {
+          "type": "string",
+          "description": "微信号"
+        },
+        "operateType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "操作类型1：网销顾问新增页面，2：销售顾问客流建档页面，3：PC页面网销经理或网销顾问新增页面，4：PC页面销售经理或销售顾问新增页面，5：PC页面客流建档页面，6：基盘续购页面"
+        },
+        "orgId": {
+          "type": "string",
+          "description": "组织ID"
+        },
+        "ownerCode": {
+          "type": "string",
+          "description": "经销商code"
+        },
+        "passengerFlowId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "客流id，直接建档时不需要传值"
+        },
+        "paymentMethod": {
+          "type": "integer",
+          "format": "int32",
+          "description": "付款方式 按揭、全款 1426"
+        },
+        "phone": {
+          "type": "string",
+          "description": "联系方式二 固定电话"
+        },
+        "postName": {
+          "type": "string",
+          "description": "职业 7031"
+        },
+        "potentialCustomersId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "潜客id，新增潜客时不需要传值"
+        },
+        "province": {
+          "type": "string",
+          "description": "省"
+        },
+        "provinceName": {
+          "type": "string",
+          "description": "省名称"
+        },
+        "qq": {
+          "type": "string",
+          "description": "QQ"
+        },
+        "receptionConsultant": {
+          "type": "string",
+          "description": "客流接待顾问"
+        },
+        "receptionConsultantOrgId": {
+          "type": "string",
+          "description": "客流接待顾问"
+        },
+        "recordVersion": {
+          "type": "integer",
+          "format": "int32",
+          "description": "RECORD_VERSION"
+        },
+        "remark": {
+          "type": "string",
+          "description": "备注"
+        },
+        "smokingOrNot": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否吸烟 1004"
+        },
+        "tagId": {
+          "type": "string",
+          "example": "1254361885753331713,1254362934794899457",
+          "description": "客户标签ID"
+        },
+        "taskId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "预约id，客流页面搜索预约信息并点击建档时需要传，当预约跳转到建档编辑页面时需要传"
+        },
+        "temperature": {
+          "type": "integer",
+          "format": "int64",
+          "description": "线索热度 7018"
+        },
+        "waysToRoad": {
+          "type": "string",
+          "description": "了解途径"
+        },
+        "wechart": {
+          "type": "string",
+          "description": "微信"
+        },
+        "wechat": {
+          "type": "string",
+          "description": "微信"
+        },
+        "workPlaceType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "工作地类型"
+        },
+        "zipCode": {
+          "type": "string",
+          "description": "邮编"
+        }
+      },
+      "title": "潜客DTO",
+      "description": "潜客对象"
+    },
+    "潜客跟进保存并跟进DTO": {
+      "type": "object",
+      "properties": {
+        "actionId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "跟进Id"
+        },
+        "customerBusinessId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "商机Id"
+        },
+        "isFollow": {
+          "type": "integer",
+          "format": "int64",
+          "description": "区分保存并跟进"
+        },
+        "oneId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "oneId"
+        },
+        "potentialCustomersId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "潜客Id"
+        },
+        "potentialCustomersNo": {
+          "type": "string",
+          "description": "潜客编号"
+        }
+      },
+      "title": "潜客跟进保存并跟进DTO",
+      "description": "潜客跟进保存并跟进DTO"
+    }
+  }
+}

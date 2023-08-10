@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "actionId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "跟进Id"
+        },
+        "customerBusinessId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "商机Id"
+        },
+        "isFollow": {
+          "type": "integer",
+          "format": "int64",
+          "description": "区分保存并跟进"
+        },
+        "oneId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "oneId"
+        },
+        "potentialCustomersId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "潜客Id"
+        },
+        "potentialCustomersNo": {
+          "type": "string",
+          "description": "潜客编号"
+        }
+      },
+      "title": "潜客跟进保存并跟进DTO",
+      "description": "潜客跟进保存并跟进DTO"
+    },
+    "elapsedMilliseconds": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "errMsg": {
+      "type": "string"
+    },
+    "resultCode": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "success": {
+      "type": "boolean"
+    }
+  },
+  "title": "RestResultResponse«潜客跟进保存并跟进DTO»"
+}

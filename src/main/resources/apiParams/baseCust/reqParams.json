@@ -1,0 +1,42 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "title": "BasalDiscParamsDTO",
+    "properties": {
+      "review": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "potentlalCustomersId": {
+        "type": "string",
+        "description": "潜客ID"
+      },
+      "orgId": {
+        "type": "string",
+        "description": "orgId"
+      },
+      "orderId": {
+        "type": "string",
+        "description": "订单ID"
+      },
+      "oneId": {
+        "type": "string",
+        "description": "oneID"
+      },
+      "customerBusinessId": {
+        "type": "string",
+        "description": "商机ID"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time",
+        "description": "回访记录创建时间"
+      },
+      "consultant": {
+        "type": "string",
+        "description": "顾问ID"
+      }
+    }
+  }
+}
