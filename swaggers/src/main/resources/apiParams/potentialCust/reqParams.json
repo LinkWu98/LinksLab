@@ -1,0 +1,868 @@
+{
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string",
+      "description": "地址"
+    },
+    "area": {
+      "type": "string",
+      "description": "区"
+    },
+    "areaName": {
+      "type": "string",
+      "description": "区名称"
+    },
+    "arriveDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "到店时间"
+    },
+    "avocation": {
+      "type": "string",
+      "description": "兴趣爱好"
+    },
+    "birthday": {
+      "type": "string",
+      "format": "date-time",
+      "description": "出生日期"
+    },
+    "bookingDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "预计购车日期"
+    },
+    "boughtCars": {
+      "type": "string",
+      "description": "已购买车型"
+    },
+    "boughtCarsAge": {
+      "type": "string",
+      "description": "已购车龄"
+    },
+    "businessAnaly": {
+      "type": "string",
+      "description": "商机分析,以逗号分割"
+    },
+    "businessClassify": {
+      "type": "integer",
+      "format": "int32",
+      "description": "业务分类"
+    },
+    "buyCarFactorList": {
+      "type": "array",
+      "description": "购车因素",
+      "items": {
+        "type": "integer",
+        "format": "int64"
+      }
+    },
+    "buyCarUse": {
+      "type": "integer",
+      "format": "int64",
+      "description": "购车用途\n15141001：代步工具\n15141002：商务用车\n15141003：休闲娱乐\n15141004：其他"
+    },
+    "buyNum": {
+      "type": "integer",
+      "format": "int32",
+      "description": "购买台次"
+    },
+    "buyType": {
+      "type": "integer",
+      "format": "int32",
+      "description": "购买方式 \n70151001：首购 \n70151002：增购 \n70151003：置换 \n70151004：未告知"
+    },
+    "carBudget": {
+      "type": "integer",
+      "format": "int32",
+      "description": "购车预算"
+    },
+    "certificateNo": {
+      "type": "string",
+      "description": "证件号码"
+    },
+    "childrenNumber": {
+      "type": "integer",
+      "format": "int32",
+      "description": "子女数量"
+    },
+    "city": {
+      "type": "string",
+      "description": "市"
+    },
+    "cityName": {
+      "type": "string",
+      "description": "市名称"
+    },
+    "clueEnterType": {
+      "type": "integer",
+      "format": "int32",
+      "description": "线索类型\n70191001：普通\n70191002：试驾\n70191003：订金"
+    },
+    "clueRecordId": {
+      "type": "integer",
+      "format": "int32",
+      "description": "线索id，查重时如果返回线索信息，需要传"
+    },
+    "clueSourceId": {
+      "type": "string",
+      "description": "线索来源"
+    },
+    "clueSourceRemark": {
+      "type": "string",
+      "description": "来源备注"
+    },
+    "competitor": {
+      "type": "string",
+      "description": "竞争品牌"
+    },
+    "competitorDTOList": {
+      "type": "array",
+      "description": "竞品信息",
+      "items": {
+        "type": "object",
+        "properties": {
+          "competitor": {
+            "type": "string",
+            "description": "String类型的竞品关注点"
+          },
+          "competitorConcerns": {
+            "type": "string",
+            "description": "竞品关注点"
+          },
+          "competitorId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "竞品ID"
+          },
+          "competitorList": {
+            "type": "array",
+            "description": "竞品关注点LIST",
+            "items": {
+              "type": "object",
+              "properties": {
+                "basedataCode": {
+                  "type": "string",
+                  "description": "基础数据代码"
+                },
+                "basedataDescribe": {
+                  "type": "string",
+                  "description": "基础数据描述"
+                },
+                "basedataId": {
+                  "type": "integer",
+                  "format": "int64",
+                  "description": "基础数据ID"
+                },
+                "basedataName": {
+                  "type": "string",
+                  "description": "基础数据名称"
+                },
+                "basedataRelateId": {
+                  "type": "integer",
+                  "format": "int64",
+                  "description": "基础数据关联ID"
+                },
+                "basedataType": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "基础数据类型 1234 购车因素  1608 了解途径"
+                },
+                "dataSources": {
+                  "type": "integer",
+                  "format": "int64",
+                  "description": "数据来源"
+                },
+                "dealerCode": {
+                  "type": "string",
+                  "description": "经销商代码"
+                },
+                "isDeleted": {
+                  "type": "boolean"
+                },
+                "isValid": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "是否有效"
+                }
+              },
+              "title": "PcBasedataDTO"
+            }
+          },
+          "competitorRemark": {
+            "type": "string",
+            "description": "竞品分析"
+          },
+          "customerBusinessId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "商机ID"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "failBrand": {
+            "type": "string",
+            "description": "品牌"
+          },
+          "failModelId": {
+            "type": "string",
+            "description": "战败竞品表ID"
+          },
+          "failSeries": {
+            "type": "string",
+            "description": "车型车系"
+          },
+          "isValid": {
+            "type": "string",
+            "description": "是否有效"
+          },
+          "level": {
+            "type": "integer",
+            "format": "int32",
+            "description": "级别1：品牌，2：车系车型，等等"
+          },
+          "parentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "父级id"
+          }
+        },
+        "title": "CompetitorDTO"
+      }
+    },
+    "consultant": {
+      "type": "string",
+      "description": "专属销售顾问"
+    },
+    "contactName": {
+      "type": "string",
+      "description": "联系人名称"
+    },
+    "ctCode": {
+      "type": "integer",
+      "format": "int32",
+      "description": "证件类型\n15081001：身份证\n15081002：护照\n15081003：军官证\n15081004：士兵证\n15081005：警察证\n15081006：其他\n15081007：机构代码\n15081008：统一社会信用代码"
+    },
+    "customerBusinessId": {
+      "type": "integer",
+      "format": "int64",
+      "description": "商机id"
+    },
+    "customerContactinfoDTOList": {
+      "type": "array",
+      "description": "联系人信息",
+      "items": {
+        "type": "object",
+        "properties": {
+          "contactId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "联系人id"
+          },
+          "contactMethod": {
+            "type": "integer",
+            "format": "int32",
+            "description": "联系方式（手机、固话、微信、QQ、E-mail、上门拜访）"
+          },
+          "contactName": {
+            "type": "string",
+            "description": "联系人"
+          },
+          "contactRelation": {
+            "type": "integer",
+            "format": "int32",
+            "description": "联系人关系（夫妻、父子、母女、姐妹、兄弟、老板、员工）"
+          },
+          "contactRemark": {
+            "type": "string",
+            "description": "联系人备注"
+          },
+          "contactTime": {
+            "type": "integer",
+            "format": "int32",
+            "description": "联系时间（上午、中午、下午、傍晚）"
+          },
+          "contactType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "联系类型（回访联系人、用车联系人、开票联系人、提车联系人、合同联系人） 7034"
+          },
+          "contactorMobile": {
+            "type": "string",
+            "description": "联系人手机"
+          },
+          "contactorPhone": {
+            "type": "string",
+            "description": "联系人电话"
+          },
+          "customerBusinessId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "商机id"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "gender": {
+            "type": "integer",
+            "format": "int32",
+            "description": "男，女, 未知"
+          },
+          "isMain": {
+            "type": "integer",
+            "format": "int32",
+            "description": "是否主联系人"
+          },
+          "potentialCustomersId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "title": "CustomerContactinfoDTO"
+      }
+    },
+    "customerFrom": {
+      "type": "string",
+      "description": "客户来源"
+    },
+    "customerName": {
+      "type": "string",
+      "description": "客户名称"
+    },
+    "customerType": {
+      "type": "integer",
+      "format": "int32",
+      "description": "客户类型\n15231001：个人\n15231002：未告知\n15231003：公司"
+    },
+    "isDeleted": {
+      "type": "boolean"
+    },
+    "displacementInfo": {
+      "type": "string",
+      "description": "置换信息"
+    },
+    "drivingNumber": {
+      "type": "integer",
+      "format": "int32",
+      "description": "日常驾乘人数"
+    },
+    "eMail": {
+      "type": "string",
+      "description": "E_MAIL"
+    },
+    "educationalLevel": {
+      "type": "integer",
+      "format": "int32",
+      "description": "教育水平\n70271001：小学\n70271002：初中\n70271003：高中/中专/技校\n70271004：大专\n70271005：本科\n70271006：硕士及以上\n70271007：未知"
+    },
+    "enterpriseType": {
+      "type": "integer",
+      "format": "int32",
+      "description": "企业性质\n83221001：机关\n83221002：事业\n83221003：企业\n83221004：运营\n83221005：公检司法\n83221006：其他"
+    },
+    "expectedCarDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "期望用车日期"
+    },
+    "familyCon": {
+      "type": "string",
+      "description": "家庭情况"
+    },
+    "familyInCome": {
+      "type": "integer",
+      "format": "int32",
+      "description": "家庭年收入（万元）正整数"
+    },
+    "familyNum": {
+      "type": "integer",
+      "format": "int32",
+      "description": "家庭人数 正整数"
+    },
+    "favoriteDrinks": {
+      "type": "integer",
+      "format": "int32",
+      "description": "钟爱饮料\n70331001：咖啡\n70331002：碳酸饮料\n70331003：茶水\n70331004：果汁\n70331005：其它"
+    },
+    "firstOrderTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "第一次下单时间"
+    },
+    "gender": {
+      "type": "integer",
+      "format": "int32",
+      "description": "性别\n10021001：先生\n10021002：女士\n10021003：未知"
+    },
+    "haveChildren": {
+      "type": "string",
+      "description": "是否有子女\n10041001：是\n10041002：否"
+    },
+    "imChannel": {
+      "type": "string",
+      "description": "IM渠道编号"
+    },
+    "imClueRecordId": {
+      "type": "integer",
+      "format": "int64",
+      "description": "C端IM编号"
+    },
+    "industry": {
+      "type": "integer",
+      "format": "int32",
+      "description": "所属行业\n70301001：互联网/IT/电子/通信\n70301002：广告/传媒/文化/体育\n70301003：金融\n70301004：教育培训\n70301005：制药/医疗\n70301006：交通/物流/贸易/零售\n70301007：专业服务\n70301008：房地产/建筑\n70301009：汽车\n70301010：机械/制造\n70301011：消费品\n70301012：服务业\n70301013：能源/化工/环保\n70301014：政府/非盈利机构/其他"
+    },
+    "intentBrand": {
+      "type": "integer",
+      "format": "int32",
+      "description": "意向品牌"
+    },
+    "intentColor": {
+      "type": "integer",
+      "format": "int32",
+      "description": "意向颜色"
+    },
+    "intentDTOList": {
+      "type": "array",
+      "description": "意向车型",
+      "items": {
+        "type": "object",
+        "properties": {
+          "clueIntentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "意向车型 id"
+          },
+          "colorId": {
+            "type": "string",
+            "description": "外色"
+          },
+          "colorName": {
+            "type": "string",
+            "description": "外色名称"
+          },
+          "colorNameZh": {
+            "type": "string",
+            "description": "外色名称"
+          },
+          "customerBusinessId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "商机id"
+          },
+          "firstId": {
+            "type": "string",
+            "description": "第一级id:意向品牌"
+          },
+          "firstNameZh": {
+            "type": "string",
+            "description": "意向品牌名称"
+          },
+          "fiveId": {
+            "type": "string",
+            "description": "第五级id:意向配置"
+          },
+          "fiveNameZh": {
+            "type": "string",
+            "description": "第五级名称"
+          },
+          "fourthId": {
+            "type": "string",
+            "description": "第四级id:意向配置"
+          },
+          "fourthNameZh": {
+            "type": "string",
+            "description": "意向配置名称"
+          },
+          "fullName": {
+            "type": "string",
+            "description": "拼接的车系名称"
+          },
+          "isDeleted": {
+            "type": "integer",
+            "format": "int32",
+            "description": "是否删除"
+          },
+          "isMainIntent": {
+            "type": "integer",
+            "format": "int32",
+            "description": "是否主意向\n10041001：是\n10041002：否"
+          },
+          "level": {
+            "type": "integer",
+            "format": "int32",
+            "description": "物料级别"
+          },
+          "materialId": {
+            "type": "string",
+            "description": "物料id"
+          },
+          "materialNameZh": {
+            "type": "string",
+            "description": "物料名称"
+          },
+          "optionId": {
+            "type": "array",
+            "description": "选装包",
+            "items": {
+              "type": "string"
+            }
+          },
+          "optionName": {
+            "type": "string",
+            "description": "选装包名称拼接"
+          },
+          "optionNameZh": {
+            "type": "string",
+            "description": "选装包名称拼接"
+          },
+          "ownerCode": {
+            "type": "string",
+            "description": "所有者代码"
+          },
+          "remark": {
+            "type": "string",
+            "description": "备注"
+          },
+          "salesOptionDTOS": {
+            "type": "array",
+            "description": "意向选装",
+            "items": {
+              "type": "object",
+              "properties": {
+                "accountMode": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "销售、免费赠送、车价已包含"
+                },
+                "clueIntentId": {
+                  "type": "integer",
+                  "format": "int64",
+                  "description": "意向列表ID"
+                },
+                "optionAmount": {
+                  "type": "number",
+                  "format": "double",
+                  "description": "选装报价"
+                },
+                "optionId": {
+                  "type": "string",
+                  "description": "选装ID"
+                },
+                "optionPrice": {
+                  "type": "number",
+                  "format": "double",
+                  "description": "选装价格"
+                },
+                "optionQuantity": {
+                  "type": "number",
+                  "format": "double",
+                  "description": "选装数量"
+                },
+                "optionType": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "选装类型(包括产品选择属性，精品包)"
+                },
+                "parentOptionId": {
+                  "type": "integer",
+                  "format": "int64",
+                  "description": "父类id(如果是套餐包中的套餐则该字段有值)"
+                },
+                "salesOptionId": {
+                  "type": "integer",
+                  "format": "int64",
+                  "description": "意向选装id"
+                },
+                "salesOptionName": {
+                  "type": "string",
+                  "description": "意向选装name"
+                }
+              },
+              "title": "SalesOptionDTO"
+            }
+          },
+          "secondId": {
+            "type": "string",
+            "description": "第二级id:意向车系"
+          },
+          "secondNameZh": {
+            "type": "string",
+            "description": "意向车系名称"
+          },
+          "thirdId": {
+            "type": "string",
+            "description": "第三级id:意向车型"
+          },
+          "thirdNameZh": {
+            "type": "string",
+            "description": "意向车型名称"
+          },
+          "trimId": {
+            "type": "string",
+            "description": "内饰"
+          },
+          "trimName": {
+            "type": "string",
+            "description": "内饰名称"
+          },
+          "trimNameZh": {
+            "type": "string",
+            "description": "内饰名称"
+          }
+        },
+        "title": "IntentDTO"
+      }
+    },
+    "intentLevel": {
+      "type": "integer",
+      "format": "int32",
+      "description": "意向级别"
+    },
+    "intentModel": {
+      "type": "integer",
+      "format": "int32",
+      "description": "意向车型"
+    },
+    "intentPackage": {
+      "type": "integer",
+      "format": "int32",
+      "description": "意向配置"
+    },
+    "intentSeries": {
+      "type": "integer",
+      "format": "int32",
+      "description": "意向车系"
+    },
+    "introducCustomerId": {
+      "type": "integer",
+      "format": "int64",
+      "description": "转介绍客户(选取已成交的客户)"
+    },
+    "isBigCustomer": {
+      "type": "integer",
+      "format": "int32",
+      "description": "是否大客户"
+    },
+    "isDormant": {
+      "type": "integer",
+      "format": "int32",
+      "description": "是否休眠客户"
+    },
+    "isFollow": {
+      "type": "integer",
+      "format": "int64",
+      "description": "区分保存并跟进"
+    },
+    "keepingVehiclesDTOList": {
+      "type": "array",
+      "description": "保有车辆",
+      "items": {
+        "type": "object",
+        "properties": {
+          "boughtCarsAge": {
+            "type": "string",
+            "description": "已购车龄"
+          },
+          "buyDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "购买日期"
+          },
+          "customerBusinessId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "商机ID"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "drivingMileage": {
+            "type": "string",
+            "description": "行驶里程"
+          },
+          "keepVehiclesBrand": {
+            "type": "string",
+            "description": "品牌"
+          },
+          "keepVehiclesId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "保有车辆ID"
+          },
+          "keepVehiclesModel": {
+            "type": "string",
+            "description": "车型"
+          },
+          "keepVehiclesSeries": {
+            "type": "string",
+            "description": "车系"
+          },
+          "keepingRemark": {
+            "type": "string",
+            "description": "备注"
+          },
+          "vin": {
+            "type": "string",
+            "description": "VIN"
+          }
+        },
+        "title": "KeepingVehiclesDTO"
+      }
+    },
+    "likeContactWay": {
+      "type": "integer",
+      "format": "int32",
+      "description": "喜欢的联系方式"
+    },
+    "liveType": {
+      "type": "integer",
+      "format": "int32",
+      "description": "居住地类型"
+    },
+    "maritalStatus": {
+      "type": "integer",
+      "format": "int32",
+      "description": "婚姻状况\n10361001：已婚\n10361002：未婚\n10361003：未知"
+    },
+    "marketActivity": {
+      "type": "string",
+      "description": "市场活动"
+    },
+    "marketActivityId": {
+      "type": "string",
+      "description": "市场活动"
+    },
+    "mobilePhone": {
+      "type": "string",
+      "description": "手机号码"
+    },
+    "oneId": {
+      "type": "integer",
+      "format": "int64",
+      "description": "唯一id"
+    },
+    "openId": {
+      "type": "string",
+      "description": "微信ID"
+    },
+    "openidName": {
+      "type": "string",
+      "description": "微信号"
+    },
+    "operateType": {
+      "type": "integer",
+      "format": "int32",
+      "description": "操作类型\n1：网销顾问新增页面\n2：销售顾问客流建档页面\n3：PC页面网销经理或网销顾问新增页面\n4：PC页面销售经理或销售顾问新增页面\n5：PC页面客流建档页面\n6：基盘续购页面"
+    },
+    "orgId": {
+      "type": "string",
+      "description": "组织ID"
+    },
+    "ownerCode": {
+      "type": "string",
+      "description": "经销商code"
+    },
+    "passengerFlowId": {
+      "type": "integer",
+      "format": "int64",
+      "description": "客流id，直接建档时不需要传值"
+    },
+    "paymentMethod": {
+      "type": "integer",
+      "format": "int32",
+      "description": "付款方式 \n14261001：全款 \n14261002：分期 \n14261003：未告知"
+    },
+    "phone": {
+      "type": "string",
+      "description": "联系方式二 固定电话"
+    },
+    "postName": {
+      "type": "string",
+      "description": "职业 7031"
+    },
+    "potentialCustomersId": {
+      "type": "integer",
+      "format": "int64",
+      "description": "潜客id，新增潜客时不需要传值"
+    },
+    "province": {
+      "type": "string",
+      "description": "省"
+    },
+    "provinceName": {
+      "type": "string",
+      "description": "省名称"
+    },
+    "qq": {
+      "type": "string",
+      "description": "QQ"
+    },
+    "receptionConsultant": {
+      "type": "string",
+      "description": "客流接待顾问"
+    },
+    "receptionConsultantOrgId": {
+      "type": "string",
+      "description": "客流接待顾问"
+    },
+    "recordVersion": {
+      "type": "integer",
+      "format": "int32",
+      "description": "RECORD_VERSION"
+    },
+    "remark": {
+      "type": "string",
+      "description": "备注"
+    },
+    "smokingOrNot": {
+      "type": "integer",
+      "format": "int32",
+      "description": "是否吸烟\n10041001：是\n10041002：否"
+    },
+    "tagId": {
+      "type": "string",
+      "example": "1254361885753331713,1254362934794899457",
+      "description": "客户标签ID"
+    },
+    "taskId": {
+      "type": "integer",
+      "format": "int64",
+      "description": "预约id，客流页面搜索预约信息并点击建档时需要传，当预约跳转到建档编辑页面时需要传"
+    },
+    "temperature": {
+      "type": "integer",
+      "format": "int64",
+      "description": "线索热度\n70181001：热\n70181002：温\n70181003：冷"
+    },
+    "waysToRoad": {
+      "type": "string",
+      "description": "了解途径"
+    },
+    "wechart": {
+      "type": "string",
+      "description": "微信"
+    },
+    "wechat": {
+      "type": "string",
+      "description": "微信"
+    },
+    "workPlaceType": {
+      "type": "integer",
+      "format": "int32",
+      "description": "工作地类型"
+    },
+    "zipCode": {
+      "type": "string",
+      "description": "邮编"
+    }
+  },
+  "title": "潜客DTO",
+  "description": "潜客对象",
+  "required": [
+    "customerType",
+    "customerName",
+    "gender"
+  ]
+}

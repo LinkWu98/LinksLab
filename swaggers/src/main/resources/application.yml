@@ -1,0 +1,82 @@
+server:
+  port: '@server.port@'
+  servlet:
+    context-path: /swagger
+#    session:
+#      timeout: 30d
+
+spring:
+  application:
+    name: swagger
+
+#  datasource:
+#    url: '@jdbc.url@'
+#    username: '@jdbc.username@'
+#    password: '@jdbc.password@'
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: '@jdbc.driverClassName@'
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    auth:
+#      url: '@jdbc.auth.url@'
+#      username: '@jdbc.auth.username@'
+#      password: '@jdbc.auth.password@'
+#      type: com.alibaba.druid.pool.DruidDataSource
+#      driver-class-name: '@jdbc.auth.driverClassName@'
+
+#  redis:
+#    host: '@redis.host@'
+#    port: '@redis.port@'
+#    password: '@redis.password@'
+#    jedis:
+#      pool:
+#        max-idle: '@redis.maxIdle@'
+#        max-wait: '@redis.maxWait@'
+#    timeout: '@redis.timeout@'
+
+swagger:
+  enabled: '@swagger.enabled@'
+  basePackage: '@swagger.basePackage@'
+  title: '@swagger.title@'
+  description: '@swagger.description@'
+  version: '@swagger.version@'
+
+#\u7F13\u5B58\u8FC7\u671F\u65F6\u95F4\uFF0C\u5355\u4F4D\uFF1A\u5929
+#cache:
+#  expireDay: 7
+
+#\u767E\u5EA6\u5F00\u653E\u5E73\u53F0
+#baidu:
+#  accessKey: PvsBP3WK9f9XCwwS6Z6tW5uAdxc16DU2
+#  #\u5730\u7406\u7F16\u7801 api \u63A5\u53E3\u5730\u5740
+#  locationCodeApi: http://api.map.baidu.com/geocoding/v3/?output=json
+
+#thread:
+#  pool:
+#    corePoolSize:
+#    maximumPoolSize:
+#    keepAliveTime:
+#    blockingQueueSize:
+
+
+# mybatis xml\u626B\u63CF
+#mybatis:
+#  mapper-locations: classpath*:com/pinliang/statistics/tiktok/base/dao/mapper/*.xml
+#  # xml\u5185\u4F7F\u7528 po \u53EF\u7701\u7565\u5305\u540D
+#  type-aliases-package: com.pinliang.statistics.tiktok.base.po
+#
+## mybatis \u65E5\u5FD7
+#logging:
+#  level:
+#    com.pinliang.statistics.tiktok.base.dao: debug
+#
+#ipwhitelist:
+#  ips: 212.64.84.172;68.79.31.156;8.136.130.202
+##    - 212.64.84.172
+##    - 68.79.31.156
+##    - 8.136.130.202
+#
+#jwt:
+#  config:
+#    key: jwtpinliang
+#    ttl: 10800000 #token\u7684\u8FC7\u671F\u65F6\u95F4,\u5355\u4F4D\u6BEB\u79D2
+#    cookieName: PL_TOKEN
