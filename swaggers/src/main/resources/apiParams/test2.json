@@ -1,0 +1,933 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Api Documentation",
+        "version": "1.0",
+        "title": "Api Documentation",
+        "termsOfService": "urn:tos",
+        "contact": {},
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+    "host": "localhost:8080",
+    "tags": [
+        {
+            "name": "basic-error-controller",
+            "description": "Basic Error Controller"
+        },
+        {
+            "name": "swagger-controller",
+            "description": "Swagger Controller"
+        }
+    ],
+    "paths": {
+        "/swagger/auditRecord/{id}": {
+            "get": {
+                "tags": [
+                    "swagger-controller"
+                ],
+                "summary": "根据业务单号获取直售退款审批历史列表",
+                "operationId": "queryFinanceAuditRecordByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RestResultResponse«List«意向金退款状态变更对象»»"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/swagger/error": {
+            "get": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingGET",
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "head": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingHEAD",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingDELETE",
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "options": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingOPTIONS",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/swagger/refund/approve": {
+            "post": {
+                "tags": [
+                    "swagger-controller"
+                ],
+                "summary": "直售退款审核-待审批",
+                "operationId": "refundApproveUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "depositRefundDto",
+                        "description": "depositRefundDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/意向金退款DTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RestResultResponse«IPage«意向金退款VO»»"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/swagger/refund/approved": {
+            "post": {
+                "tags": [
+                    "swagger-controller"
+                ],
+                "summary": "直售退款审批列表已审批查询",
+                "operationId": "queryAuditedListBatchUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "depositRefundDto",
+                        "description": "depositRefundDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/意向金退款DTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RestResultResponse«IPage«意向金退款VO»»"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "IPage«意向金退款VO»": {
+            "type": "object",
+            "properties": {
+                "current": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "hitCount": {
+                    "type": "boolean"
+                },
+                "pages": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "records": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/意向金退款VO"
+                    }
+                },
+                "searchCount": {
+                    "type": "boolean"
+                },
+                "size": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "IPage«意向金退款VO»"
+        },
+        "ModelAndView": {
+            "type": "object",
+            "properties": {
+                "empty": {
+                    "type": "boolean"
+                },
+                "model": {
+                    "type": "object"
+                },
+                "modelMap": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object"
+                    }
+                },
+                "reference": {
+                    "type": "boolean"
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "ACCEPTED",
+                        "ALREADY_REPORTED",
+                        "BAD_GATEWAY",
+                        "BAD_REQUEST",
+                        "BANDWIDTH_LIMIT_EXCEEDED",
+                        "CHECKPOINT",
+                        "CONFLICT",
+                        "CONTINUE",
+                        "CREATED",
+                        "DESTINATION_LOCKED",
+                        "EXPECTATION_FAILED",
+                        "FAILED_DEPENDENCY",
+                        "FORBIDDEN",
+                        "FOUND",
+                        "GATEWAY_TIMEOUT",
+                        "GONE",
+                        "HTTP_VERSION_NOT_SUPPORTED",
+                        "IM_USED",
+                        "INSUFFICIENT_SPACE_ON_RESOURCE",
+                        "INSUFFICIENT_STORAGE",
+                        "INTERNAL_SERVER_ERROR",
+                        "I_AM_A_TEAPOT",
+                        "LENGTH_REQUIRED",
+                        "LOCKED",
+                        "LOOP_DETECTED",
+                        "METHOD_FAILURE",
+                        "METHOD_NOT_ALLOWED",
+                        "MOVED_PERMANENTLY",
+                        "MOVED_TEMPORARILY",
+                        "MULTIPLE_CHOICES",
+                        "MULTI_STATUS",
+                        "NETWORK_AUTHENTICATION_REQUIRED",
+                        "NON_AUTHORITATIVE_INFORMATION",
+                        "NOT_ACCEPTABLE",
+                        "NOT_EXTENDED",
+                        "NOT_FOUND",
+                        "NOT_IMPLEMENTED",
+                        "NOT_MODIFIED",
+                        "NO_CONTENT",
+                        "OK",
+                        "PARTIAL_CONTENT",
+                        "PAYLOAD_TOO_LARGE",
+                        "PAYMENT_REQUIRED",
+                        "PERMANENT_REDIRECT",
+                        "PRECONDITION_FAILED",
+                        "PRECONDITION_REQUIRED",
+                        "PROCESSING",
+                        "PROXY_AUTHENTICATION_REQUIRED",
+                        "REQUESTED_RANGE_NOT_SATISFIABLE",
+                        "REQUEST_ENTITY_TOO_LARGE",
+                        "REQUEST_HEADER_FIELDS_TOO_LARGE",
+                        "REQUEST_TIMEOUT",
+                        "REQUEST_URI_TOO_LONG",
+                        "RESET_CONTENT",
+                        "SEE_OTHER",
+                        "SERVICE_UNAVAILABLE",
+                        "SWITCHING_PROTOCOLS",
+                        "TEMPORARY_REDIRECT",
+                        "TOO_EARLY",
+                        "TOO_MANY_REQUESTS",
+                        "UNAUTHORIZED",
+                        "UNAVAILABLE_FOR_LEGAL_REASONS",
+                        "UNPROCESSABLE_ENTITY",
+                        "UNSUPPORTED_MEDIA_TYPE",
+                        "UPGRADE_REQUIRED",
+                        "URI_TOO_LONG",
+                        "USE_PROXY",
+                        "VARIANT_ALSO_NEGOTIATES"
+                    ]
+                },
+                "view": {
+                    "$ref": "#/definitions/View"
+                },
+                "viewName": {
+                    "type": "string"
+                }
+            },
+            "title": "ModelAndView"
+        },
+        "RestResultResponse«IPage«意向金退款VO»»": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/IPage«意向金退款VO»"
+                },
+                "elapsedMilliseconds": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "errMsg": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "title": "RestResultResponse«IPage«意向金退款VO»»"
+        },
+        "RestResultResponse«List«意向金退款状态变更对象»»": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/意向金退款状态变更对象"
+                    }
+                },
+                "elapsedMilliseconds": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "errMsg": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "title": "RestResultResponse«List«意向金退款状态变更对象»»"
+        },
+        "View": {
+            "type": "object",
+            "properties": {
+                "contentType": {
+                    "type": "string"
+                }
+            },
+            "title": "View"
+        },
+        "意向金退款DTO": {
+            "type": "object",
+            "properties": {
+                "businessNo": {
+                    "type": "string",
+                    "description": "业务单号"
+                },
+                "businessNoList": {
+                    "type": "array",
+                    "description": "订单编号List_批量查詢",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "businessType": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "业务类型"
+                },
+                "commitTime": {
+                    "type": "string",
+                    "description": "提交时间"
+                },
+                "commitTimeEnd": {
+                    "type": "string",
+                    "description": "提交时间止"
+                },
+                "commitTimeStart": {
+                    "type": "string",
+                    "description": "提交时间起"
+                },
+                "consultant": {
+                    "type": "string",
+                    "description": "销售顾问"
+                },
+                "current": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "当前页"
+                },
+                "customerName": {
+                    "type": "string",
+                    "description": "客户名称"
+                },
+                "customerTel": {
+                    "type": "string",
+                    "description": "手机号"
+                },
+                "deliveringDate": {
+                    "type": "string",
+                    "description": "预交车时间"
+                },
+                "deliveryOwnerCodes": {
+                    "type": "array",
+                    "description": "订车门店",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "directRetailFlag": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "客户订单列表查询 1：直售客户订单查询；2：客户订单查询"
+                },
+                "financeAuditType": {
+                    "type": "string",
+                    "description": "财务审批类型"
+                },
+                "limit": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "分页大小"
+                },
+                "menuId": {
+                    "type": "string",
+                    "description": "菜单ID用于权限查询拼接"
+                },
+                "orderOwnerCodes": {
+                    "type": "array",
+                    "description": "交车经销商",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "refundStatus": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "退款审核结果"
+                },
+                "saleType": {
+                    "type": "string",
+                    "description": "订单类型"
+                },
+                "sheetCreateDateEnd": {
+                    "type": "string",
+                    "description": "开单日期(结束)"
+                },
+                "sheetCreateDateStart": {
+                    "type": "string",
+                    "description": "开单日期(开始)"
+                },
+                "soNo": {
+                    "type": "string",
+                    "description": "客户订单编号"
+                },
+                "soNoId": {
+                    "type": "string",
+                    "description": "客户订单Id"
+                },
+                "soStatus": {
+                    "type": "string",
+                    "description": "订单状态：1404"
+                },
+                "sort": {
+                    "type": "string",
+                    "description": "排序方式"
+                },
+                "strongWeakAgent": {
+                    "type": "string",
+                    "description": "强弱代理"
+                },
+                "submitAuditDetail": {
+                    "type": "string",
+                    "description": "审批意见"
+                },
+                "submitBy": {
+                    "type": "string",
+                    "description": "提交人"
+                }
+            },
+            "title": "意向金退款DTO"
+        },
+        "意向金退款VO": {
+            "type": "object",
+            "properties": {
+                "auditBy": {
+                    "type": "string",
+                    "description": "审核人员"
+                },
+                "auditDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "审批日期"
+                },
+                "auditPostil": {
+                    "type": "string",
+                    "description": "审批意见"
+                },
+                "auditProgress": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "审核进度"
+                },
+                "businessKey": {
+                    "type": "string",
+                    "description": "(审批流传入)业务关键字"
+                },
+                "businessNo": {
+                    "type": "string",
+                    "description": "业务单号(订单里对应订单编号)"
+                },
+                "businessType": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "业务类型"
+                },
+                "candicateGroup": {
+                    "type": "string",
+                    "description": "(审批流传入)角色人员"
+                },
+                "carDetail": {
+                    "type": "string",
+                    "description": "车辆拼接信息"
+                },
+                "commitTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "提交时间"
+                },
+                "consultant": {
+                    "type": "string",
+                    "description": "销售顾问"
+                },
+                "customerBusinessId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "商机ID"
+                },
+                "customerId": {
+                    "type": "string",
+                    "description": "客户id"
+                },
+                "customerName": {
+                    "type": "string",
+                    "description": "客户名称"
+                },
+                "customerSurnames": {
+                    "type": "string",
+                    "description": "潜客姓氏"
+                },
+                "customerTel": {
+                    "type": "string",
+                    "description": "手机号"
+                },
+                "deliveringDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "预计交车时间"
+                },
+                "deliveryAddress": {
+                    "type": "string",
+                    "description": "订车门店地址"
+                },
+                "deliveryCompanyName": {
+                    "type": "string",
+                    "description": "订车门店名称"
+                },
+                "deliveryOwnerCode": {
+                    "type": "string",
+                    "description": "订车门店"
+                },
+                "executionId": {
+                    "type": "string",
+                    "description": "(审批流传入)标识"
+                },
+                "financeAuditType": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "财务审批类型"
+                },
+                "gender": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "性别"
+                },
+                "materialId": {
+                    "type": "string",
+                    "description": "产品ID"
+                },
+                "modifyRemark": {
+                    "type": "string",
+                    "description": "订单申请修改备注"
+                },
+                "orderAddress": {
+                    "type": "string",
+                    "description": "交车经销商地址"
+                },
+                "orderCompanyName": {
+                    "type": "string",
+                    "description": "交车经销商名称"
+                },
+                "orderOwnerCode": {
+                    "type": "string",
+                    "description": "交车经销商"
+                },
+                "refundApprovalId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "直售退款审批表ID"
+                },
+                "refundStatus": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "审核结果"
+                },
+                "saleType": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "订单类型"
+                },
+                "sheetCreateDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "开单日期"
+                },
+                "sheetCreatedBy": {
+                    "type": "string",
+                    "description": "开单人"
+                },
+                "soNoId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "销售订单ID(业务订单号)"
+                },
+                "soSecondStatus": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "订单辅助状态"
+                },
+                "soStatus": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "订单状态"
+                },
+                "strongWeakAgent": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "强弱代理"
+                },
+                "strongWeakAgentName": {
+                    "type": "string",
+                    "description": "强弱代理名称"
+                },
+                "submitBy": {
+                    "type": "string",
+                    "description": "提交人"
+                },
+                "taskId": {
+                    "type": "string",
+                    "description": "(审批流传入)业务编号"
+                },
+                "textDetail": {
+                    "type": "string",
+                    "description": "入参文本-取消、变更原因"
+                },
+                "visibleCustomerTel": {
+                    "type": "string"
+                }
+            },
+            "title": "意向金退款VO"
+        },
+        "意向金退款状态变更对象": {
+            "type": "object",
+            "properties": {
+                "billType": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "单据类型(审批、订单历史等)"
+                },
+                "changeBy": {
+                    "type": "string",
+                    "description": "变更人员"
+                },
+                "changeDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "变更日期"
+                },
+                "changePostil": {
+                    "type": "string",
+                    "description": "变更意见"
+                },
+                "changeStatus": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "变更状态"
+                },
+                "changeTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "变更时间"
+                },
+                "fileUrl": {
+                    "type": "string",
+                    "description": "附件URL"
+                },
+                "refundStatusId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "财务退款状态变更ID"
+                },
+                "returnReason": {
+                    "type": "string",
+                    "description": "审核驳回原因"
+                }
+            },
+            "title": "意向金退款状态变更对象",
+            "description": "意向金退款状态变更对象"
+        }
+    }
+}

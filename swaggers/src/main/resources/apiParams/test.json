@@ -25,7 +25,7 @@
     "paths": {
         "/swagger/clueauditDisc/addAuditDists": {
             "post": {
-                "tags": [
+                "tags":
                     "swagger-controller"
                 ],
                 "summary": "新增基盘客户",

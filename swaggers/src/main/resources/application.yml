@@ -9,13 +9,12 @@ spring:
   application:
     name: swagger
 
-#  datasource:
-#    url: '@jdbc.url@'
-#    username: '@jdbc.username@'
-#    password: '@jdbc.password@'
-#    type: com.alibaba.druid.pool.DruidDataSource
-#    driver-class-name: '@jdbc.driverClassName@'
-#    driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource:
+    url: '@jdbc.url@'
+    username: '@jdbc.username@'
+    password: '@jdbc.password@'
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: '@jdbc.driverClassName@'
 #    auth:
 #      url: '@jdbc.auth.url@'
 #      username: '@jdbc.auth.username@'
