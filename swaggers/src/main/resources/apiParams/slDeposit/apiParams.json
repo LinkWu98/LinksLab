@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "largeDepositPeriod": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否大定期间，1004"
+        },
+        "smallDepositPeriod": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否小订期间，1004"
+        }
+      },
+      "title": "小大定相关dto"
+    },
+    "elapsedMilliseconds": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "errMsg": {
+      "type": "string"
+    },
+    "resultCode": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "success": {
+      "type": "boolean"
+    }
+  },
+  "title": "RestResultResponse«小大定相关dto»"
+}

@@ -1,15 +1,20 @@
 package cn.link.swagger.controller;
 
 import cn.link.swagger.newbie.common.RestResultResponse;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 import cn.link.swagger.newbie.retail.BasalDiscParamsDTO;
 import cn.link.swagger.newbie.retail.CustomerSaveAndActionDTO;
 import cn.link.swagger.newbie.retail.PotentialRecordDto;
+import cn.link.swagger.newbie.retail.slDeposit.SmallLargeDepositDTO;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -35,6 +40,28 @@ public class SwaggerController {
     )
     @PostMapping({"/clueauditDisc/addAuditDists"})
     RestResultResponse<Long> addAuditDists(@RequestBody List<BasalDiscParamsDTO> basalDiscParamsDTO) {
+        return null;
+    }
+
+    @ApiOperation(
+            value = "根据订单类型查询该类订单是否大小定期间",
+            notes = "根据订单类型查询该类订单是否大小定期间",
+            httpMethod = "GET"
+    )
+    @GetMapping(value = "/saleType/{saleType}")
+    @ResponseBody
+    RestResultResponse<SmallLargeDepositDTO> isPeriodBySaleType(@PathVariable(value = "saleType") Integer saleType) {
+        return null;
+    }
+
+    /**
+     * 根据订单类型查询对应车型id
+     */
+    @ApiOperation(notes = "根据订单类型查询对应车型id", value = "根据订单类型查询对应车型--PC/APP")
+    @ApiImplicitParam(name = "saleType", value = "订单销售类型", dataType = "Integer", paramType = "query")
+    @GetMapping(value = "/model/saleType/{saleType}")
+    @ResponseBody
+    public RestResultResponse<List<Integer>> getModelIdsBySaleType(@PathVariable(value = "saleType") Integer saleType) {
         return null;
     }
 
