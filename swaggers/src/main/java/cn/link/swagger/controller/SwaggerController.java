@@ -1,26 +1,36 @@
 package cn.link.swagger.controller;
 
+import cn.link.swagger.newbie.common.AppletDataResponse;
 import cn.link.swagger.newbie.common.RestResultResponse;
 import cn.link.swagger.newbie.retail.BasalDiscParamsDTO;
 import cn.link.swagger.newbie.retail.CustomerSaveAndActionDTO;
 import cn.link.swagger.newbie.retail.PotentialRecordDto;
+import cn.link.swagger.newbie.retail.UpdatePresaleOrderDTO;
 import cn.link.swagger.newbie.retail.refund.DepositRefundDTO;
 import cn.link.swagger.newbie.retail.refund.FinanceAuditStatusLogVO;
 import cn.link.swagger.newbie.retail.refund.FinanceAuditVO;
+import cn.link.swagger.newbie.retail.refund.PageManufacturerVO;
+import cn.link.swagger.newbie.retail.refund.QueryRetailOrderDTO;
 import cn.link.swagger.newbie.retail.slDeposit.SmallLargeDepositDTO;
 import cn.link.swagger.utils.CommonUtils;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 /**
@@ -70,31 +80,51 @@ public class SwaggerController {
     //    return null;
     //}
 
-    /**
-     * 直售退款审核-待审批
-     */
-    @ApiOperation(value = "直售退款审核-待审批")
-    @PostMapping("/refund/approve")
-    public RestResultResponse<IPage<FinanceAuditVO>> refundApprove(@RequestBody DepositRefundDTO depositRefundDto) {
-        return null;
-    }
+    ///**
+    // * 直售退款审核-待审批
+    // */
+    //@ApiOperation(value = "直售退款审核-待审批")
+    //@PostMapping("/refund/approve")
+    //public RestResultResponse<IPage<FinanceAuditVO>> refundApprove(@RequestBody DepositRefundDTO depositRefundDto) {
+    //    return null;
+    //}
+    //
+    ///**
+    // * 直售退款审核-已审批
+    // */
+    //@ApiOperation(value = "直售退款审批列表已审批查询")
+    //@PostMapping("/refund/approved")
+    //public RestResultResponse<IPage<FinanceAuditVO>> queryAuditedListBatch(@RequestBody DepositRefundDTO depositRefundDto) {
+    //    return null;
+    //}
+    //
+    //
+    ///**
+    // * 根据业务单号获取直售退款审批历史列表
+    // */
+    //@ApiOperation(value = "根据业务单号获取直售退款审批历史列表")
+    //@GetMapping(value = "/auditRecord/{id}")
+    //public RestResultResponse<List<FinanceAuditStatusLogVO>> queryFinanceAuditRecordById(@PathVariable(value = "id") Long id) {
+    //    return null;
+    //}
+
+    //@ApiOperation(value = "客户订单查询—(导出使用)-支持批量查询")
+    //@PostMapping("/getSalesRetailOrder")
+    //public IPage<PageManufacturerVO> getSalesRetailOrderBatch(@RequestBody QueryRetailOrderDTO retailOrderDTO) {
+    //    return null;
+    //}
 
     /**
-     * 直售退款审核-已审批
+     * 预售订单，C端支付大定后，小转大完善订单信息
      */
-    @ApiOperation(value = "直售退款审批列表已审批查询")
-    @PostMapping("/refund/approved")
-    public RestResultResponse<IPage<FinanceAuditVO>> queryAuditedListBatch(@RequestBody DepositRefundDTO depositRefundDto) {
-        return null;
-    }
-
-
-    /**
-     * 根据业务单号获取直售退款审批历史列表
-     */
-    @ApiOperation(value = "根据业务单号获取直售退款审批历史列表")
-    @GetMapping(value = "/auditRecord/{id}")
-    public RestResultResponse<List<FinanceAuditStatusLogVO>> queryFinanceAuditRecordById(@PathVariable(value = "id") Long id) {
+    @ApiOperation(value = "预售订单，C端支付大定后，小转大完善订单信息")
+    @ApiImplicitParams({
+                @ApiImplicitParam(name = "soNoId", value = "订单id", required = true, dataType = "String", paramType = "body"),
+                @ApiImplicitParam(name = "modifyC40OrderDTO", value = "完善订单信息所需参数", required = true, dataType = "ModifyC40OrderDTO", paramType = "body")
+    })
+    @PostMapping("/updatePreSaleOrder")
+    public AppletDataResponse updatePreSaleOrder(@RequestParam("soNoId") @Validated @NotBlank(message = "订单id不能为空") String soNoId,
+                                                 @RequestBody @Validated UpdatePresaleOrderDTO updatePresaleOrderDTO) {
         return null;
     }
 
