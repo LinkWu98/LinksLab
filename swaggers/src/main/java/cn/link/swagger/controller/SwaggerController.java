@@ -119,12 +119,10 @@ public class SwaggerController {
      */
     @ApiOperation(value = "预售订单，C端支付大定后，小转大完善订单信息")
     @ApiImplicitParams({
-                @ApiImplicitParam(name = "soNoId", value = "订单id", required = true, dataType = "String", paramType = "body"),
-                @ApiImplicitParam(name = "modifyC40OrderDTO", value = "完善订单信息所需参数", required = true, dataType = "ModifyC40OrderDTO", paramType = "body")
+                @ApiImplicitParam(name = "modifyC40OrderDTO", value = "完善订单信息所需参数", required = true, dataType = "UpdatePresaleOrderDTO", paramType = "body")
     })
     @PostMapping("/updatePreSaleOrder")
-    public AppletDataResponse updatePreSaleOrder(@RequestParam("soNoId") @Validated @NotBlank(message = "订单id不能为空") String soNoId,
-                                                 @RequestBody @Validated UpdatePresaleOrderDTO updatePresaleOrderDTO) {
+    public RestResultResponse<AppletDataResponse> updatePreSaleOrder(@RequestBody @Validated UpdatePresaleOrderDTO updatePresaleOrderDTO) {
         return null;
     }
 

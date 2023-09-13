@@ -22,6 +22,11 @@ import java.util.List;
 @NoArgsConstructor
 @ApiModel(value = "UpdatePresaleOrderDTO", description = "预售订单完善信息DTO")
 public class UpdatePresaleOrderDTO {
+
+    @ApiModelProperty(value = "订单id",required = true)
+    @NotBlank(message = "订单id不能为空")
+    private String soNoId;
+
     @ApiModelProperty(value = "订单购买类型", required = true)
     @NotNull(message = "购买类型不能为空")
     private Integer purchassCode;

@@ -17,7 +17,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
 //        RequestHandlerSelectors配置扫描接口的方式
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("cn.link.swagger.controller"))
 //                path过滤什么路径
                 .paths(PathSelectors.any())
                 .build();
