@@ -1,320 +1,192 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "description": "Api Documentation",
-        "version": "1.0",
-        "title": "Api Documentation",
-        "termsOfService": "urn:tos",
-        "contact": {},
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0"
-        }
-    },
-    "host": "localhost:8080",
-    "tags": [
+    "resultCode": 200,
+    "errMsg": null,
+    "elapsedMilliseconds": 0,
+    "data": [
         {
-            "name": "swagger-controller",
-            "description": "Swagger Controller"
+            "materialId": "1030",
+            "materialLevel": 2,
+            "materialCode": "224",
+            "materialShortCode": null,
+            "materialNameZh": "S60",
+            "materialNameEn": "S60",
+            "materialYear": null,
+            "basedataId": null,
+            "dataSources": null,
+            "isValid": null,
+            "isPreSale": null,
+            "isAfterSale": null,
+            "fuelType": null,
+            "oemDirectivePrice": null,
+            "taxPurchasePrice": null,
+            "purchasePrice": null,
+            "parentMaterialId": null,
+            "vehicleSources": null,
+            "isUsedCar": null,
+            "onSale": null,
+            "isDirectModel": 10041001
+        },
+        {
+            "materialId": "1033",
+            "materialLevel": 2,
+            "materialCode": "238",
+            "materialShortCode": null,
+            "materialNameZh": "S90",
+            "materialNameEn": "S90",
+            "materialYear": null,
+            "basedataId": null,
+            "dataSources": null,
+            "isValid": null,
+            "isPreSale": null,
+            "isAfterSale": null,
+            "fuelType": null,
+            "oemDirectivePrice": null,
+            "taxPurchasePrice": null,
+            "purchasePrice": null,
+            "parentMaterialId": null,
+            "vehicleSources": null,
+            "isUsedCar": null,
+            "onSale": null,
+            "isDirectModel": 10041001
+        },
+        {
+            "materialId": "1031",
+            "materialLevel": 2,
+            "materialCode": "225",
+            "materialShortCode": null,
+            "materialNameZh": "V60",
+            "materialNameEn": "V60",
+            "materialYear": null,
+            "basedataId": null,
+            "dataSources": null,
+            "isValid": null,
+            "isPreSale": null,
+            "isAfterSale": null,
+            "fuelType": null,
+            "oemDirectivePrice": null,
+            "taxPurchasePrice": null,
+            "purchasePrice": null,
+            "parentMaterialId": null,
+            "vehicleSources": null,
+            "isUsedCar": null,
+            "onSale": null,
+            "isDirectModel": 10041001
+        },
+        {
+            "materialId": "1032",
+            "materialLevel": 2,
+            "materialCode": "236",
+            "materialShortCode": null,
+            "materialNameZh": "V90 Cross Country",
+            "materialNameEn": "V90 Cross Country",
+            "materialYear": null,
+            "basedataId": null,
+            "dataSources": null,
+            "isValid": null,
+            "isPreSale": null,
+            "isAfterSale": null,
+            "fuelType": null,
+            "oemDirectivePrice": null,
+            "taxPurchasePrice": null,
+            "purchasePrice": null,
+            "parentMaterialId": null,
+            "vehicleSources": null,
+            "isUsedCar": null,
+            "onSale": null,
+            "isDirectModel": 10041001
+        },
+        {
+            "materialId": "1041",
+            "materialLevel": 2,
+            "materialCode": "536ED",
+            "materialShortCode": null,
+            "materialNameZh": "XC40 RECHARGE",
+            "materialNameEn": "XC40 RECHARGE",
+            "materialYear": null,
+            "basedataId": null,
+            "dataSources": null,
+            "isValid": null,
+            "isPreSale": null,
+            "isAfterSale": null,
+            "fuelType": null,
+            "oemDirectivePrice": null,
+            "taxPurchasePrice": null,
+            "purchasePrice": null,
+            "parentMaterialId": null,
+            "vehicleSources": null,
+            "isUsedCar": null,
+            "onSale": null,
+            "isDirectModel": 10041001
+        },
+        {
+            "materialId": "1034",
+            "materialLevel": 2,
+            "materialCode": "246",
+            "materialShortCode": null,
+            "materialNameZh": "XC60",
+            "materialNameEn": "XC60",
+            "materialYear": null,
+            "basedataId": null,
+            "dataSources": null,
+            "isValid": null,
+            "isPreSale": null,
+            "isAfterSale": null,
+            "fuelType": null,
+            "oemDirectivePrice": null,
+            "taxPurchasePrice": null,
+            "purchasePrice": null,
+            "parentMaterialId": null,
+            "vehicleSources": null,
+            "isUsedCar": null,
+            "onSale": null,
+            "isDirectModel": 10041001
+        },
+        {
+            "materialId": "1035",
+            "materialLevel": 2,
+            "materialCode": "256",
+            "materialShortCode": null,
+            "materialNameZh": "XC90",
+            "materialNameEn": "XC90",
+            "materialYear": null,
+            "basedataId": null,
+            "dataSources": null,
+            "isValid": null,
+            "isPreSale": null,
+            "isAfterSale": null,
+            "fuelType": null,
+            "oemDirectivePrice": null,
+            "taxPurchasePrice": null,
+            "purchasePrice": null,
+            "parentMaterialId": null,
+            "vehicleSources": null,
+            "isUsedCar": null,
+            "onSale": null,
+            "isDirectModel": 10041001
+        },
+        {
+            "materialId": "1051",
+            "materialLevel": 2,
+            "materialCode": "539",
+            "materialShortCode": null,
+            "materialNameZh": "全新纯电C40",
+            "materialNameEn": "全新纯电C40",
+            "materialYear": null,
+            "basedataId": null,
+            "dataSources": null,
+            "isValid": null,
+            "isPreSale": null,
+            "isAfterSale": null,
+            "fuelType": null,
+            "oemDirectivePrice": null,
+            "taxPurchasePrice": null,
+            "purchasePrice": null,
+            "parentMaterialId": null,
+            "vehicleSources": null,
+            "isUsedCar": null,
+            "onSale": null,
+            "isDirectModel": 10041001
         }
     ],
-    "paths": {
-        "/swagger/updatePreSaleOrder": {
-            "post": {
-                "tags": [
-                    "swagger-controller"
-                ],
-                "summary": "预售订单，C端支付大定后，小转大完善订单信息",
-                "operationId": "updatePreSaleOrderUsingPOST",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "*/*"
-                ],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "modifyC40OrderDTO",
-                        "description": "完善订单信息所需参数",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "in": "body",
-                        "name": "updatePresaleOrderDTO",
-                        "description": "updatePresaleOrderDTO",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/UpdatePresaleOrderDTO"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/RestResultResponse«AppletDataResponse»"
-                        }
-                    },
-                    "201": {
-                        "description": "Created"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not Found"
-                    }
-                }
-            }
-        }
-    },
-    "definitions": {
-        "AppletDataResponse": {
-            "type": "object",
-            "properties": {
-                "returnCode": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "code 0-更新成功 1-更新失败"
-                },
-                "returnMessage": {
-                    "type": "string",
-                    "description": "消息 更新成功/更新失败"
-                }
-            },
-            "title": "AppletDataResponse",
-            "description": "直售响应对象"
-        },
-        "C端权益包对象": {
-            "type": "object",
-            "properties": {
-                "costRatio": {
-                    "type": "number",
-                    "description": "费用比例%，当费用计算方式为按比例时使用"
-                },
-                "equityPackageCategory": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "权益包类型 增值型:91271001或 折扣型:91271002"
-                },
-                "feeCalcMethod": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "权益计算方式 按比例:91261001 或 按金额:91261002"
-                },
-                "matchType": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "匹配类型(按vin:91281001 按车型:91281002)"
-                },
-                "serviceCode": {
-                    "type": "string",
-                    "description": "权益包代码"
-                },
-                "serviceId": {
-                    "type": "string",
-                    "description": "权益包id"
-                },
-                "serviceName": {
-                    "type": "string",
-                    "description": "权益包名称"
-                },
-                "servicePrice": {
-                    "type": "number",
-                    "format": "double",
-                    "description": "权益包价格"
-                },
-                "serviceType": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "权益包费用类型"
-                }
-            },
-            "title": "C端权益包对象",
-            "description": "C端权益包对象"
-        },
-        "RestResultResponse«AppletDataResponse»": {
-            "type": "object",
-            "properties": {
-                "data": {
-                    "$ref": "#/definitions/AppletDataResponse"
-                },
-                "elapsedMilliseconds": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "errMsg": {
-                    "type": "string"
-                },
-                "resultCode": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "success": {
-                    "type": "boolean"
-                }
-            },
-            "title": "RestResultResponse«AppletDataResponse»"
-        },
-        "SalesOptionDTO": {
-            "type": "object",
-            "properties": {
-                "accountMode": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "销售、免费赠送、车价已包含"
-                },
-                "clueIntentId": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "意向列表ID"
-                },
-                "optionAmount": {
-                    "type": "number",
-                    "format": "double",
-                    "description": "选装报价"
-                },
-                "optionId": {
-                    "type": "string",
-                    "description": "选装ID"
-                },
-                "optionPrice": {
-                    "type": "number",
-                    "format": "double",
-                    "description": "选装价格"
-                },
-                "optionQuantity": {
-                    "type": "number",
-                    "format": "double",
-                    "description": "选装数量"
-                },
-                "optionType": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "选装类型(包括产品选择属性，精品包)"
-                },
-                "parentOptionId": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "父类id(如果是套餐包中的套餐则该字段有值)"
-                },
-                "salesOptionId": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "意向选装id"
-                },
-                "salesOptionName": {
-                    "type": "string",
-                    "description": "意向选装name"
-                }
-            },
-            "title": "SalesOptionDTO"
-        },
-        "UpdatePresaleOrderDTO": {
-            "type": "object",
-            "required": [
-                "deliveryOwnerCode",
-                "drawerCertificateNo",
-                "drawerCtcode",
-                "drawerName",
-                "drawerNewCtcode",
-                "drawerTel",
-                "equityPackageAddList",
-                "payMode",
-                "purchassCode"
-            ],
-            "properties": {
-                "deductibleAmount": {
-                    "type": "number",
-                    "format": "double",
-                    "description": "抵扣金额"
-                },
-                "deliveryOwnerCode": {
-                    "type": "string",
-                    "description": "交车经销商代码"
-                },
-                "drawerCertificateNo": {
-                    "type": "string",
-                    "description": "开票人证件号码"
-                },
-                "drawerCtcode": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "开票人类型"
-                },
-                "drawerName": {
-                    "type": "string",
-                    "description": "开票人姓名"
-                },
-                "drawerNewCtcode": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "开票人证件类型"
-                },
-                "drawerTel": {
-                    "type": "string",
-                    "description": "开票人电话"
-                },
-                "equityPackageAddList": {
-                    "type": "array",
-                    "description": "C端权益包集合参数",
-                    "items": {
-                        "$ref": "#/definitions/C端权益包对象"
-                    }
-                },
-                "fourId": {
-                    "type": "string",
-                    "description": "第四级ID"
-                },
-                "payMode": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "付款方式 1426"
-                },
-                "purchassCode": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "订单购买类型"
-                },
-                "remark": {
-                    "type": "string",
-                    "description": "轮毂"
-                },
-                "salesOptionList": {
-                    "type": "array",
-                    "description": "精品/包",
-                    "items": {
-                        "$ref": "#/definitions/SalesOptionDTO"
-                    }
-                },
-                "secondId": {
-                    "type": "string",
-                    "description": "第二级ID（series）"
-                },
-                "subsidyPrice": {
-                    "type": "number",
-                    "format": "double",
-                    "description": "补贴价"
-                },
-                "thirdId": {
-                    "type": "string",
-                    "description": "第三级ID"
-                },
-                "vehicleRetailAllAmount": {
-                    "type": "number",
-                    "format": "double",
-                    "description": "车厂指导价"
-                }
-            },
-            "title": "UpdatePresaleOrderDTO",
-            "description": "预售订单完善信息DTO"
-        }
-    }
+    "success": true
 }

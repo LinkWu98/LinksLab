@@ -1,0 +1,338 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Api Documentation",
+        "version": "1.0",
+        "title": "Api Documentation",
+        "termsOfService": "urn:tos",
+        "contact": {},
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+    "host": "localhost:8080",
+    "tags": [
+        {
+            "name": "swagger-controller",
+            "description": "Swagger Controller"
+        }
+    ],
+    "paths": {
+        "/swagger/deliveryVehicle": {
+            "post": {
+                "tags": [
+                    "swagger-controller"
+                ],
+                "summary": "交车上报",
+                "operationId": "deliveryVehicleUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "salesOrdersDTO",
+                        "description": "salesOrdersDTO",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/整车销售订单DTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RestResultResponse«int»"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "RestResultResponse«int»": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "elapsedMilliseconds": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "errMsg": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "title": "RestResultResponse«int»"
+        },
+        "整车销售订单DTO": {
+            "type": "object",
+            "properties": {
+                "activityId": {
+                    "type": "string",
+                    "description": "订单创建-市场活动"
+                },
+                "actualTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "实际交车时间"
+                },
+                "auditedByManagerDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "最新审核通过日期"
+                },
+                "auditedManager": {
+                    "type": "string",
+                    "description": "最新审核人员"
+                },
+                "auditedManagerRemark": {
+                    "type": "string",
+                    "description": "最新审核意见"
+                },
+                "businessType": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "一般销售、受托交车、销售退货"
+                },
+                "carUUID": {
+                    "type": "string",
+                    "description": "新车确认交付单"
+                },
+                "clueSource": {
+                    "type": "string",
+                    "description": "线索来源id"
+                },
+                "companyCode": {
+                    "type": "string",
+                    "description": "公司代码"
+                },
+                "confirmedDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "业务线下交车确认日期"
+                },
+                "consultant": {
+                    "type": "string",
+                    "description": "销售顾问ID"
+                },
+                "contractDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "签约日期"
+                },
+                "contractEarnest": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "定金/违约金"
+                },
+                "contractNo": {
+                    "type": "string",
+                    "description": "合约编号"
+                },
+                "customerBusinessId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "商机id"
+                },
+                "customerId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "潜客id"
+                },
+                "customerRepairNoticeUuid": {
+                    "type": "string",
+                    "description": "客户维修告知书"
+                },
+                "deliveryAuthorizationUuid": {
+                    "type": "string",
+                    "description": "交车委托书"
+                },
+                "deliveryCeremonyUuid": {
+                    "type": "string",
+                    "description": "交车仪式照片"
+                },
+                "deliveryChecklistUuid": {
+                    "type": "string",
+                    "description": "交车检查清单"
+                },
+                "deliveryConfirmConsultantUuid": {
+                    "type": "string",
+                    "description": "新车交付确认单（顾问上传）"
+                },
+                "deliveryConfirmCustomerUuid": {
+                    "type": "string",
+                    "description": "新车交付确认单（客户签署）"
+                },
+                "deliveryContactPhone": {
+                    "type": "string",
+                    "description": "交车联系人电话"
+                },
+                "deliveryMode": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "交车方式(1428)"
+                },
+                "drawerId": {
+                    "type": "string",
+                    "description": "开票人id(dmo返回)"
+                },
+                "handCarStatus": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "交车状态"
+                },
+                "imgUUID": {
+                    "type": "string",
+                    "description": "三包凭证"
+                },
+                "invoiceMode": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "开票方式(1429)"
+                },
+                "isApp": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否APP/PC"
+                },
+                "isBigCustomer": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否大客户"
+                },
+                "isCarElectronic": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "合同权限"
+                },
+                "isClearing": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否结清"
+                },
+                "isDeposit": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否交订金"
+                },
+                "isOurStore": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否本店投保"
+                },
+                "isPoorQuality": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否质损"
+                },
+                "mileage": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "里程数"
+                },
+                "oldSoNo": {
+                    "type": "string",
+                    "description": "原销售订单号"
+                },
+                "orgId": {
+                    "type": "string",
+                    "description": "组织id"
+                },
+                "otherAttachmentUuid": {
+                    "type": "string",
+                    "description": "其他附件"
+                },
+                "ownerCode": {
+                    "type": "string",
+                    "description": "经销商代码"
+                },
+                "phevUUID": {
+                    "type": "string",
+                    "description": "phev上传"
+                },
+                "priceRemark": {
+                    "type": "string",
+                    "description": "价格备注"
+                },
+                "remark": {
+                    "type": "string",
+                    "description": "订单备注"
+                },
+                "returnReason": {
+                    "type": "string",
+                    "description": "退单原因"
+                },
+                "sheetCreateDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "开单日期"
+                },
+                "sheetCreatedBy": {
+                    "type": "string",
+                    "description": "开单人"
+                },
+                "soNo": {
+                    "type": "string",
+                    "description": "销售订单号"
+                },
+                "soNoId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "销售订单ID"
+                },
+                "soStatus": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "订单状态(1404)"
+                },
+                "soVinId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "订单车辆表id"
+                },
+                "submitTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "提交时间"
+                },
+                "volvoWorldAccount": {
+                    "type": "string",
+                    "description": "沃世界账号"
+                },
+                "whetherToReplace": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否置换"
+                }
+            },
+            "title": "整车销售订单DTO"
+        }
+    }
+}
