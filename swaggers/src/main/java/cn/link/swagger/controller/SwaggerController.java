@@ -1,21 +1,10 @@
 package cn.link.swagger.controller;
 
-import cn.link.swagger.newbie.common.AppletDataResponse;
 import cn.link.swagger.newbie.common.RestResultResponse;
-import cn.link.swagger.newbie.retail.SalesOrdersDTO;
-import cn.link.swagger.newbie.retail.UpdatePresaleOrderDTO;
-import cn.link.swagger.newbie.retail.deliver.DeliveryManageAppDTO;
-import cn.link.swagger.newbie.retail.deliver.DeliveryManageVO;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import cn.link.swagger.newbie.retail.deliver.SalesOrdersDTO;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import org.junit.Test;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -142,10 +131,30 @@ public class SwaggerController {
     //public RestResultResponse<Integer> deliveryVehicle(@RequestBody SalesOrdersDTO salesOrdersDTO) {
     //    return null;
     //}
-    @ApiOperation(value = "根据经销商代码和主体代码，查询POS机")
-    @GetMapping("/getPos/{dealerCode}")
-    public RestResultResponse<List<String>> savePayment(@ApiParam(name = "dealerCode", value = "经销商code") @PathVariable("dealerCode") String dealerCode,
-                                                        @ApiParam(name = "mainType", value = "主体类型") @RequestParam(value = "mainType", required = false) Integer mainType) {
+//    @ApiOperation(value = "根据经销商代码和主体代码，查询POS机")
+//    @GetMapping("/getPos/{dealerCode}")
+//    public RestResultResponse<List<String>> savePayment(@ApiParam(name = "dealerCode", value = "经销商code") @PathVariable("dealerCode") String dealerCode,
+//                                                        @ApiParam(name = "mainType", value = "主体类型") @RequestParam(value = "mainType", required = false) Integer mainType) {
+//        return null;
+//    }
+
+//    @ApiOperation(value = "根据经销商代码和主体代码，查询POS机")
+//    @GetMapping("/getPos/{dealerCode}")
+//    public RestResultResponse<List<String>> savePayment(@ApiParam(name = "dealerCode", value = "经销商code") @PathVariable("dealerCode") String dealerCode,
+//                                                        @ApiParam(name = "mainType", value = "主体类型") @RequestParam(value = "mainType", required = false) Integer mainType) {
+//        return null;
+//    }
+
+    /**
+     * 直售交车上报，更新交车资料，开启审批流
+     *
+     * @param salesOrdersDTO
+     * @return
+     */
+    @ApiOperation(value = "直售交车上报")
+    @PostMapping(value = "/directSaleDeliveryVehicle")
+    public RestResultResponse<Object> directSaleDeliveryVehicle(@RequestParam(value = "param1", required = false) Integer param1) {
+        System.out.println(param1);
         return null;
     }
 
