@@ -1,14 +1,11 @@
 package cn.link.swagger.controller;
 
 import cn.link.swagger.newbie.common.RestResultResponse;
-import cn.link.swagger.newbie.retail.deliver.SalesOrdersDTO;
+import cn.link.swagger.newbie.retail.ConfirmDeliveryReqDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.junit.Test;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -145,16 +142,27 @@ public class SwaggerController {
 //        return null;
 //    }
 
-    /**
-     * 直售交车上报，更新交车资料，开启审批流
-     *
-     * @param salesOrdersDTO
-     * @return
-     */
-    @ApiOperation(value = "直售交车上报")
-    @PostMapping(value = "/directSaleDeliveryVehicle")
-    public RestResultResponse<Object> directSaleDeliveryVehicle(@RequestParam(value = "param1", required = false) Integer param1) {
-        System.out.println(param1);
+    ///**
+    // * 直售交车上报，更新交车资料，开启审批流
+    // *
+    // * @param salesOrdersDTO
+    // * @return
+    // */
+    //@ApiOperation(value = "直售交车上报")
+    //@PostMapping(value = "/directSaleDeliveryVehicle")
+    //public RestResultResponse<Object> directSaleDeliveryVehicle(@RequestParam(value = "param1", required = false) Integer param1) {
+    //    System.out.println(param1);
+    //    return null;
+    //}
+    @ApiOperation(value = "确认交车确认函")
+    @PostMapping("/confirmDeliveryInvitation")
+    public RestResultResponse<Integer> confirmDeliveryInvitation(@RequestBody ConfirmDeliveryReqDto confirmDeliveryReqDto) {
+        return null;
+    }
+
+    @ApiOperation(value = "查询交车确认函")
+    @GetMapping("/getConfirmDeliveryInvitation")
+    public RestResultResponse<ConfirmDeliveryReqDto> getConfirmDeliveryInvitation(@RequestParam("vin") String vin) {
         return null;
     }
 

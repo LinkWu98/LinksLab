@@ -1,0 +1,218 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Api Documentation",
+        "version": "1.0",
+        "title": "Api Documentation",
+        "termsOfService": "urn:tos",
+        "contact": {},
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+    "host": "localhost:8080",
+    "tags": [
+        {
+            "name": "swagger-controller",
+            "description": "Swagger Controller"
+        }
+    ],
+    "paths": {
+        "/swagger/confirmDeliveryInvitation": {
+            "post": {
+                "tags": [
+                    "swagger-controller"
+                ],
+                "summary": "确认交车确认函",
+                "operationId": "confirmDeliveryInvitationUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "confirmDeliveryReqDto",
+                        "description": "confirmDeliveryReqDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/确认提车"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RestResultResponse«int»"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/swagger/getConfirmDeliveryInvitation": {
+            "get": {
+                "tags": [
+                    "swagger-controller"
+                ],
+                "summary": "查询交车确认函",
+                "operationId": "getConfirmDeliveryInvitationUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "vin",
+                        "in": "query",
+                        "description": "vin",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RestResultResponse«确认提车»"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "RestResultResponse«int»": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "elapsedMilliseconds": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "errMsg": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "title": "RestResultResponse«int»"
+        },
+        "RestResultResponse«确认提车»": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/确认提车"
+                },
+                "elapsedMilliseconds": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "errMsg": {
+                    "type": "string"
+                },
+                "resultCode": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "title": "RestResultResponse«确认提车»"
+        },
+        "确认提车": {
+            "type": "object",
+            "properties": {
+                "customerName": {
+                    "type": "string",
+                    "description": "姓名（正楷）"
+                },
+                "customerPhone": {
+                    "type": "string",
+                    "description": "手机"
+                },
+                "deliveryAddress": {
+                    "type": "string",
+                    "description": "提车地址"
+                },
+                "deliveryConfirmDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "提车确认日期(点击提车确认按钮)"
+                },
+                "deliveryDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "提车日期"
+                },
+                "isCompleteOil": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否满油满电状态 10041001:是 10041002:否"
+                },
+                "isConfirmDelivery": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否确认提车 10041001:是 10041002:否"
+                },
+                "memberId": {
+                    "type": "string",
+                    "description": "会员id"
+                },
+                "memberPhone": {
+                    "type": "string",
+                    "description": "会员手机号"
+                },
+                "modelName": {
+                    "type": "string",
+                    "description": "车型名称"
+                },
+                "signName": {
+                    "type": "string",
+                    "description": "签字姓名"
+                },
+                "soNo": {
+                    "type": "string",
+                    "description": "销售订单号"
+                },
+                "vin": {
+                    "type": "string",
+                    "description": "车架号"
+                }
+            },
+            "title": "确认提车"
+        }
+    }
+}
