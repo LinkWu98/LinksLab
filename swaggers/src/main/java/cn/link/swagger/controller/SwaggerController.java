@@ -2,10 +2,15 @@ package cn.link.swagger.controller;
 
 import cn.link.swagger.newbie.common.RestResultResponse;
 import cn.link.swagger.newbie.retail.ConfirmDeliveryReqDto;
+import cn.link.swagger.newbie.retail.OemImportSalesOrderExcelVO;
+import cn.link.swagger.newbie.retail.OemRetailOrderCreateDTO;
+import cn.link.swagger.newbie.retail.importClazz.ImportResultDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.junit.Test;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -154,15 +159,33 @@ public class SwaggerController {
     //    System.out.println(param1);
     //    return null;
     //}
-    @ApiOperation(value = "确认交车确认函")
-    @PostMapping("/confirmDeliveryInvitation")
-    public RestResultResponse<Integer> confirmDeliveryInvitation(@RequestBody ConfirmDeliveryReqDto confirmDeliveryReqDto) {
+    //@ApiOperation(value = "确认交车确认函")
+    //@PostMapping("/confirmDeliveryInvitation")
+    //public RestResultResponse<Integer> confirmDeliveryInvitation(@RequestBody ConfirmDeliveryReqDto confirmDeliveryReqDto) {
+    //    return null;
+    //}
+    //
+    //@ApiOperation(value = "查询交车确认函")
+    //@GetMapping("/getConfirmDeliveryInvitation")
+    //public RestResultResponse<ConfirmDeliveryReqDto> getConfirmDeliveryInvitation(@RequestParam("vin") String vin) {
+    //    return null;
+    //}
+
+    /**
+     * 厂端代创客户订单
+     */
+    @ApiOperation(value = "厂端代创客户订单")
+    @PostMapping("/oem/add")
+    public RestResultResponse<Integer> oemAddManufacturerOrder(@ApiParam(name = "厂端代创客户订单", value = "厂端代创客户订单") @RequestBody OemRetailOrderCreateDTO oemRetailOrderCreateDTO) {
         return null;
     }
 
-    @ApiOperation(value = "查询交车确认函")
-    @GetMapping("/getConfirmDeliveryInvitation")
-    public RestResultResponse<ConfirmDeliveryReqDto> getConfirmDeliveryInvitation(@RequestParam("vin") String vin) {
+    /**
+     * 厂端导入客户订单
+     */
+    @ApiOperation(value = "厂端导入客户订单")
+    @PostMapping("/oem/import")
+    public ImportResultDto<OemImportSalesOrderExcelVO> oemImportManufacturerOrder(@RequestParam(value = "file") MultipartFile multipartFile) {
         return null;
     }
 

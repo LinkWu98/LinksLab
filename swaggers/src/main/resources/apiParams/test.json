@@ -19,13 +19,13 @@
         }
     ],
     "paths": {
-        "/swagger/confirmDeliveryInvitation": {
+        "/swagger/oem/add": {
             "post": {
                 "tags": [
                     "swagger-controller"
                 ],
-                "summary": "确认交车确认函",
-                "operationId": "confirmDeliveryInvitationUsingPOST",
+                "summary": "厂端代创客户订单",
+                "operationId": "oemAddManufacturerOrderUsingPOST",
                 "consumes": [
                     "application/json"
                 ],
@@ -35,11 +35,11 @@
                 "parameters": [
                     {
                         "in": "body",
-                        "name": "confirmDeliveryReqDto",
-                        "description": "confirmDeliveryReqDto",
+                        "name": "厂端代创客户订单",
+                        "description": "厂端代创客户订单",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/确认提车"
+                            "$ref": "#/definitions/OemRetailOrderCreateDTO"
                         }
                     }
                 ],
@@ -65,31 +65,40 @@
                 }
             }
         },
-        "/swagger/getConfirmDeliveryInvitation": {
-            "get": {
+        "/swagger/oem/import": {
+            "post": {
                 "tags": [
                     "swagger-controller"
                 ],
-                "summary": "查询交车确认函",
-                "operationId": "getConfirmDeliveryInvitationUsingGET",
+                "summary": "厂端代创客户订单",
+                "operationId": "oemImportManufacturerOrderUsingPOST",
+                "consumes": [
+                    "multipart/form-data"
+                ],
                 "produces": [
                     "*/*"
                 ],
                 "parameters": [
                     {
-                        "name": "vin",
-                        "in": "query",
-                        "description": "vin",
+                        "in": "body",
+                        "name": "file",
+                        "description": "file",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "type": "string",
+                            "format": "binary"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/RestResultResponse«确认提车»"
+                            "$ref": "#/definitions/ImportResultDto«OemImportSalesOrderExcelVO»"
                         }
+                    },
+                    "201": {
+                        "description": "Created"
                     },
                     "401": {
                         "description": "Unauthorized"
@@ -105,6 +114,149 @@
         }
     },
     "definitions": {
+        "ImportResultDto«OemImportSalesOrderExcelVO»": {
+            "type": "object",
+            "properties": {
+                "dataList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/OemImportSalesOrderExcelVO"
+                    }
+                },
+                "errorList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/OemImportSalesOrderExcelVO"
+                    }
+                },
+                "sucess": {
+                    "type": "boolean"
+                }
+            },
+            "title": "ImportResultDto«OemImportSalesOrderExcelVO»"
+        },
+        "OemImportSalesOrderExcelVO": {
+            "type": "object",
+            "properties": {
+                "configCode": {
+                    "type": "string",
+                    "description": "业务配置代码"
+                },
+                "configName": {
+                    "type": "string",
+                    "description": "配置"
+                },
+                "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                },
+                "deliveryOwnerCode": {
+                    "type": "string",
+                    "description": "订车门店代码"
+                },
+                "errorMsg": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "modelName": {
+                    "type": "string",
+                    "description": "车型"
+                },
+                "modelYear": {
+                    "type": "string",
+                    "description": "年款"
+                },
+                "rowNO": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "strongWeakAgent": {
+                    "type": "string",
+                    "description": "销售模式"
+                }
+            },
+            "title": "OemImportSalesOrderExcelVO"
+        },
+        "OemRetailOrderCreateDTO": {
+            "type": "object",
+            "properties": {
+                "activityId": {
+                    "type": "string",
+                    "description": "订单创建-市场活动"
+                },
+                "consultant": {
+                    "type": "string",
+                    "description": "销售顾问"
+                },
+                "contactName": {
+                    "type": "string",
+                    "description": "联系人姓名"
+                },
+                "contactPhone": {
+                    "type": "string",
+                    "description": "联系人电话"
+                },
+                "customerActivityId": {
+                    "type": "string",
+                    "description": "订单创建-市场活动(集客)"
+                },
+                "customerAddress": {
+                    "type": "string",
+                    "description": "联系地址"
+                },
+                "customerBusinessId": {
+                    "type": "string",
+                    "description": "商机id"
+                },
+                "customerCertificateNo": {
+                    "type": "string",
+                    "description": "证件号码"
+                },
+                "customerCtCode": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "证件类型"
+                },
+                "customerId": {
+                    "type": "string",
+                    "description": "客户ID"
+                },
+                "customerName": {
+                    "type": "string",
+                    "description": "客户姓名"
+                },
+                "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                },
+                "deliveryOwnerCode": {
+                    "type": "string",
+                    "description": "订车门店"
+                },
+                "fourName": {
+                    "type": "string",
+                    "description": "配置"
+                },
+                "secondName": {
+                    "type": "string",
+                    "description": "车型"
+                },
+                "strongWeakAgent": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "销售模式"
+                },
+                "thirdName": {
+                    "type": "string",
+                    "description": "年款"
+                }
+            },
+            "title": "OemRetailOrderCreateDTO",
+            "description": "厂端代创客户订单DTO"
+        },
         "RestResultResponse«int»": {
             "type": "object",
             "properties": {
@@ -128,91 +280,6 @@
                 }
             },
             "title": "RestResultResponse«int»"
-        },
-        "RestResultResponse«确认提车»": {
-            "type": "object",
-            "properties": {
-                "data": {
-                    "$ref": "#/definitions/确认提车"
-                },
-                "elapsedMilliseconds": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "errMsg": {
-                    "type": "string"
-                },
-                "resultCode": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "success": {
-                    "type": "boolean"
-                }
-            },
-            "title": "RestResultResponse«确认提车»"
-        },
-        "确认提车": {
-            "type": "object",
-            "properties": {
-                "customerName": {
-                    "type": "string",
-                    "description": "姓名（正楷）"
-                },
-                "customerPhone": {
-                    "type": "string",
-                    "description": "手机"
-                },
-                "deliveryAddress": {
-                    "type": "string",
-                    "description": "提车地址"
-                },
-                "deliveryConfirmDate": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "提车确认日期(点击提车确认按钮)"
-                },
-                "deliveryDate": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "提车日期"
-                },
-                "isCompleteOil": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "是否满油满电状态 10041001:是 10041002:否"
-                },
-                "isConfirmDelivery": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "是否确认提车 10041001:是 10041002:否"
-                },
-                "memberId": {
-                    "type": "string",
-                    "description": "会员id"
-                },
-                "memberPhone": {
-                    "type": "string",
-                    "description": "会员手机号"
-                },
-                "modelName": {
-                    "type": "string",
-                    "description": "车型名称"
-                },
-                "signName": {
-                    "type": "string",
-                    "description": "签字姓名"
-                },
-                "soNo": {
-                    "type": "string",
-                    "description": "销售订单号"
-                },
-                "vin": {
-                    "type": "string",
-                    "description": "车架号"
-                }
-            },
-            "title": "确认提车"
         }
     }
 }
