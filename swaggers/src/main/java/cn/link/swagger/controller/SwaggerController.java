@@ -1,20 +1,33 @@
 package cn.link.swagger.controller;
 
 import cn.link.swagger.newbie.common.RestResultResponse;
-import cn.link.swagger.newbie.retail.ConfirmDeliveryReqDto;
 import cn.link.swagger.newbie.retail.OemImportSalesOrderExcelVO;
 import cn.link.swagger.newbie.retail.OemRetailOrderCreateDTO;
+import cn.link.swagger.newbie.retail.PotentialForOrderDTO;
+import cn.link.swagger.newbie.retail.SalesOrdersDTO;
 import cn.link.swagger.newbie.retail.importClazz.ImportResultDto;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.junit.Test;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author 90762
@@ -171,21 +184,46 @@ public class SwaggerController {
     //    return null;
     //}
 
-    /**
-     * 厂端代创客户订单
-     */
-    @ApiOperation(value = "厂端代创客户订单")
-    @PostMapping("/oem/add")
-    public RestResultResponse<Integer> oemAddManufacturerOrder(@ApiParam(name = "厂端代创客户订单", value = "厂端代创客户订单") @RequestBody OemRetailOrderCreateDTO oemRetailOrderCreateDTO) {
-        return null;
-    }
+//    /**
+//     * 厂端代创客户订单
+//     */
+//    @ApiOperation(value = "厂端代创客户订单")
+//    @PostMapping("/oem/add")
+//    public RestResultResponse<Integer> oemAddManufacturerOrder(@ApiParam(name = "厂端代创客户订单", value = "厂端代创客户订单") @RequestBody OemRetailOrderCreateDTO oemRetailOrderCreateDTO) {
+//        return null;
+//    }
+//
+//    /**
+//     * 厂端导入客户订单
+//     */
+//    @ApiOperation(value = "厂端导入客户订单")
+//    @PostMapping("/oem/import")
+//    public ImportResultDto<OemImportSalesOrderExcelVO> oemImportManufacturerOrder(@RequestParam(value = "file") MultipartFile multipartFile) {
+//        return null;
+//    }
 
-    /**
-     * 厂端导入客户订单
-     */
-    @ApiOperation(value = "厂端导入客户订单")
-    @PostMapping("/oem/import")
-    public ImportResultDto<OemImportSalesOrderExcelVO> oemImportManufacturerOrder(@RequestParam(value = "file") MultipartFile multipartFile) {
+
+    @ApiOperation(value = "厂端选择线索(客户)", notes = "厂端选择线索(客户)")
+    @GetMapping(value = "/queryPotentialForOrderOem", produces = "application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum", value = "当前页"),
+            @ApiImplicitParam(name = "limit", value = "分页大小"),
+            @ApiImplicitParam(name = "consult", value = "顾问"),
+            @ApiImplicitParam(name = "queryStr", value = "客户姓名或手机号"),
+            @ApiImplicitParam(name = "customerName", value = "客户姓名"),
+            @ApiImplicitParam(name = "mobilePhone", value = "手机号"),
+            @ApiImplicitParam(name = "menuId", value = "菜单id"),
+            @ApiImplicitParam(name = "deliveryOwnerCode", value = "订车门店code"),
+            @ApiImplicitParam(name = "customerNos", value = "客户编号")
+    })
+    public RestResultResponse<IPage<PotentialForOrderDTO>> queryPotentialForOrderOem(@RequestParam("pageNum") Long current, @RequestParam("limit") Long size,
+                                                                 @RequestParam(value = "consult", required = false) String consult,
+                                                                 @RequestParam(value = "queryStr", required = false) String queryStr,
+                                                                 @RequestParam(value = "customerName", required = false) String customerName,
+                                                                 @RequestParam(value = "mobilePhone", required = false) String mobilePhone,
+                                                                 @RequestParam(value = "menuId", required = false) String menuId,
+                                                                 @RequestParam(value = "deliveryOwnerCode", required = false) String deliveryOwnerCode,
+                                                                 @RequestParam(value = "customerNos", required = false) String customerNos) {
         return null;
     }
 
@@ -207,14 +245,23 @@ public class SwaggerController {
     }
 
     @Test
-    public void test2(){
-        List<BigDecimal> list = new ArrayList<>();
-        list.add(BigDecimal.valueOf(1));
-        list.add(BigDecimal.valueOf(2));
-        list.add(BigDecimal.valueOf(3));
-        list.add(BigDecimal.valueOf(4));
-        BigDecimal optionPackagePrice = BigDecimal.ZERO;
-        System.out.println(list.stream().reduce(optionPackagePrice, BigDecimal::add));
+    public void test2() {
+        String testa = "{\"data\":[],\"elapsedMilliseconds\":0,\"resultCode\":200,\"success\":true}";
+        JSONObject jsonObject = JSONObject.parseObject(testa);
+        JSONArray data = jsonObject.getJSONArray("data");
+        Map<Integer, List<Object>> collect = Collections.emptyList().stream()
+                .collect(Collectors.groupingBy(Object::hashCode));
+        System.out.println(collect);
+    }
+
+    @Test
+    public void test3() {
+        SalesOrdersDTO dto = new SalesOrdersDTO();
+        dto.setBusinessType(null);
+        if (dto.getBusinessType() == 1) {
+            System.out.println(1);
+        }
+
     }
 
 }
