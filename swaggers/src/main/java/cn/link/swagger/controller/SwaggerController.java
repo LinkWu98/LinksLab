@@ -1,5 +1,6 @@
 package cn.link.swagger.controller;
 
+import cn.hutool.core.util.ObjectUtil;
 import cn.link.swagger.newbie.common.RestResultResponse;
 import cn.link.swagger.newbie.retail.OemImportSalesOrderExcelVO;
 import cn.link.swagger.newbie.retail.OemRetailOrderCreateDTO;
@@ -24,10 +25,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.*;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author 90762
@@ -255,12 +263,73 @@ public class SwaggerController {
     }
 
     @Test
-    public void test3() {
-        SalesOrdersDTO dto = new SalesOrdersDTO();
-        dto.setBusinessType(null);
-        if (dto.getBusinessType() == 1) {
-            System.out.println(1);
-        }
+    public void test3() throws Exception {
+        //String filePath = "";
+        //File topFolder = new File(filePath);
+        //Path topPath = FileSystems.getDefault().getPath(filePath);
+        //File[] files = topFolder.listFiles();
+        //if (files == null || files.length == 0) {
+        //    return;
+        //}
+        //删除torrent
+        //Stream.of(files)
+        //        .filter(file -> !file.isDirectory() && ObjectUtil.contains(file.getName(), "torrent"))
+        //        .forEach(file -> {
+        //            String name = file.getName();
+        //            boolean delete = file.delete();
+        //            System.out.println("删除：" + name + (delete ? " 成功" : " 失败"));
+        //        });
+
+        //移动视频文件到外层
+        //if (topFolder.isDirectory() && ObjectUtil.isNotEmpty(files)) {
+        //    //获取要移动的文件所在的文件夹
+        //    List<File> directoryList = Stream.of(files)
+        //            .filter(file -> file.isDirectory() && ObjectUtil.contains(file.getName(), "-"))
+        //            .filter(file -> ObjectUtil.isNotEmpty(file.listFiles()) && file.listFiles().length == 2)
+        //            .collect(Collectors.toList());
+        //
+        //    System.out.println("文件夹数量"+ directoryList.size());
+        //
+        //    if (ObjectUtil.isEmpty(directoryList)) {
+        //        System.out.print("暂无要移动的文件");
+        //        return;
+        //    }
+        //
+        //    //获取要移动的文件
+        //    List<File> moveFileList = directoryList.stream()
+        //            .map(file -> Stream.of(file.listFiles())
+        //                    .filter(childFile -> (!childFile.isDirectory()
+        //                            && ObjectUtil.contains(childFile.getName(), "-")
+        //                            && !ObjectUtil.contains(childFile.getName(), "torrent")))
+        //                    .findFirst()
+        //                    .orElse(null))
+        //            .filter(Objects::nonNull)
+        //            .collect(Collectors.toList());
+        //
+        //    System.out.print("文件数量" + moveFileList.size() + "文件名：" + "\n" + moveFileList.stream().map(File::getAbsolutePath).collect(Collectors.joining("\n")));
+
+            //moveFileList.forEach(file -> {
+            //    //移动后的路径
+            //    Path targetPath = topPath.resolve(file.getName());
+            //    Path sourcePath = FileSystems.getDefault().getPath(file.getAbsolutePath());
+            //    try {
+            //        Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+            //    } catch (IOException e) {
+            //        e.printStackTrace();
+            //    }
+            //});
+            //获取要删除的文件所在的文件夹
+            //List<File> directoryList = Stream.of(files)
+            //        .filter(file -> file.isDirectory() && ObjectUtil.contains(file.getName(), "-"))
+            //        .filter(file -> ObjectUtil.isNotEmpty(file.listFiles()) && file.listFiles().length == 1 && ObjectUtil.contains(file.listFiles()[0].getName(), "torrent"))
+            //        .collect(Collectors.toList());
+            //
+            //System.out.println("文件夹数量" + directoryList.size() + "文件夹名：" + "\n" + directoryList.stream().map(File::getAbsolutePath).collect(Collectors.joining("\n")));
+            //
+            //directoryList.forEach(directory -> {
+            //    directory.listFiles()[0].delete();
+            //    directory.delete();
+            //});
 
     }
 
