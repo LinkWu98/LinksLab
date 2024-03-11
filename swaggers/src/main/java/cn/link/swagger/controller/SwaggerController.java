@@ -1,22 +1,28 @@
 package cn.link.swagger.controller;
 
-import cn.hutool.core.util.ObjectUtil;
+import cn.afterturn.easypoi.excel.ExcelExportUtil;
+import cn.afterturn.easypoi.excel.entity.TemplateExportParams;
 import cn.link.swagger.newbie.common.RestResultResponse;
 import cn.link.swagger.newbie.retail.OemImportSalesOrderExcelVO;
 import cn.link.swagger.newbie.retail.OemRetailOrderCreateDTO;
 import cn.link.swagger.newbie.retail.PotentialForOrderDTO;
 import cn.link.swagger.newbie.retail.SalesOrdersDTO;
+import cn.link.swagger.newbie.retail.TcStrongWeakAgentVO;
 import cn.link.swagger.newbie.retail.importClazz.ImportResultDto;
+import cn.link.swagger.utils.StreamUtils;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.spire.xls.FileFormat;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.Test;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,17 +31,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.*;
-import java.nio.file.FileSystems;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * @author 90762
@@ -210,60 +218,74 @@ public class SwaggerController {
 //        return null;
 //    }
 
+    //
+    //@ApiOperation(value = "厂端选择线索(客户)", notes = "厂端选择线索(客户)")
+    //@GetMapping(value = "/queryPotentialForOrderOem", produces = "application/json")
+    //@ApiImplicitParams({
+    //        @ApiImplicitParam(name = "pageNum", value = "当前页"),
+    //        @ApiImplicitParam(name = "limit", value = "分页大小"),
+    //        @ApiImplicitParam(name = "consult", value = "顾问"),
+    //        @ApiImplicitParam(name = "queryStr", value = "客户姓名或手机号"),
+    //        @ApiImplicitParam(name = "customerName", value = "客户姓名"),
+    //        @ApiImplicitParam(name = "mobilePhone", value = "手机号"),
+    //        @ApiImplicitParam(name = "menuId", value = "菜单id"),
+    //        @ApiImplicitParam(name = "deliveryOwnerCode", value = "订车门店code"),
+    //        @ApiImplicitParam(name = "customerNos", value = "客户编号")
+    //})
+    //public RestResultResponse<IPage<PotentialForOrderDTO>> queryPotentialForOrderOem(@RequestParam("pageNum") Long current, @RequestParam("limit") Long size,
+    //                                                             @RequestParam(value = "consult", required = false) String consult,
+    //                                                             @RequestParam(value = "queryStr", required = false) String queryStr,
+    //                                                             @RequestParam(value = "customerName", required = false) String customerName,
+    //                                                             @RequestParam(value = "mobilePhone", required = false) String mobilePhone,
+    //                                                             @RequestParam(value = "menuId", required = false) String menuId,
+    //                                                             @RequestParam(value = "deliveryOwnerCode", required = false) String deliveryOwnerCode,
+    //                                                             @RequestParam(value = "customerNos", required = false) String customerNos) {
+    //    return null;
+    //}
 
-    @ApiOperation(value = "厂端选择线索(客户)", notes = "厂端选择线索(客户)")
-    @GetMapping(value = "/queryPotentialForOrderOem", produces = "application/json")
+
+    @GetMapping("/list")
+    @ApiOperation(value = "根据车型年款配置，查询强弱代理配置")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "pageNum", value = "当前页"),
-            @ApiImplicitParam(name = "limit", value = "分页大小"),
-            @ApiImplicitParam(name = "consult", value = "顾问"),
-            @ApiImplicitParam(name = "queryStr", value = "客户姓名或手机号"),
-            @ApiImplicitParam(name = "customerName", value = "客户姓名"),
-            @ApiImplicitParam(name = "mobilePhone", value = "手机号"),
-            @ApiImplicitParam(name = "menuId", value = "菜单id"),
-            @ApiImplicitParam(name = "deliveryOwnerCode", value = "订车门店code"),
-            @ApiImplicitParam(name = "customerNos", value = "客户编号")
+            @ApiImplicitParam(value = "车型ID", name = "modelId", required = true),
+            @ApiImplicitParam(value = "年款", name = "modelYear", required = false),
+            @ApiImplicitParam(value = "配置ID", name = "configId", required = false),
     })
-    public RestResultResponse<IPage<PotentialForOrderDTO>> queryPotentialForOrderOem(@RequestParam("pageNum") Long current, @RequestParam("limit") Long size,
-                                                                 @RequestParam(value = "consult", required = false) String consult,
-                                                                 @RequestParam(value = "queryStr", required = false) String queryStr,
-                                                                 @RequestParam(value = "customerName", required = false) String customerName,
-                                                                 @RequestParam(value = "mobilePhone", required = false) String mobilePhone,
-                                                                 @RequestParam(value = "menuId", required = false) String menuId,
-                                                                 @RequestParam(value = "deliveryOwnerCode", required = false) String deliveryOwnerCode,
-                                                                 @RequestParam(value = "customerNos", required = false) String customerNos) {
+    public RestResultResponse<List<TcStrongWeakAgentVO>> strongWeakAgentByCondition(@RequestParam(value = "modelId") Integer modelId,
+                                                                                    @RequestParam(value = "modelYear", required = false) Integer modelYear,
+                                                                                    @RequestParam(value = "configId", required = false) Integer configId) {
         return null;
     }
 
-    @Test
-    public void test() {
-        String str1 = "hello";
-        String str2 = str1;
-        String str3 = "world";
-        String str4 = str1 + str3;
-        String str5 = str1 + str3 + new String("!");
-        // 使用 == 比较字符串的引用相等
-        System.out.println(str1 == str2);
-        System.out.println(str1 == "hello");
-        System.out.println(str1 == str3);
-        // 使用 equals 方法比较字符串的相等
-        System.out.println(str1.equals(str2));
-        System.out.println(str1.equals(str3));
-        StringBuilder sb = new StringBuilder();
-    }
-
-    @Test
-    public void test2() {
-        String testa = "{\"data\":[],\"elapsedMilliseconds\":0,\"resultCode\":200,\"success\":true}";
-        JSONObject jsonObject = JSONObject.parseObject(testa);
-        JSONArray data = jsonObject.getJSONArray("data");
-        Map<Integer, List<Object>> collect = Collections.emptyList().stream()
-                .collect(Collectors.groupingBy(Object::hashCode));
-        System.out.println(collect);
-    }
-
-    @Test
-    public void test3() throws Exception {
+    //@Test
+    //public void test() {
+    //    String str1 = "hello";
+    //    String str2 = str1;
+    //    String str3 = "world";
+    //    String str4 = str1 + str3;
+    //    String str5 = str1 + str3 + new String("!");
+    //    // 使用 == 比较字符串的引用相等
+    //    System.out.println(str1 == str2);
+    //    System.out.println(str1 == "hello");
+    //    System.out.println(str1 == str3);
+    //    // 使用 equals 方法比较字符串的相等
+    //    System.out.println(str1.equals(str2));
+    //    System.out.println(str1.equals(str3));
+    //    StringBuilder sb = new StringBuilder();
+    //}
+    //
+    //@Test
+    //public void test2() {
+    //    String testa = "{\"data\":[],\"elapsedMilliseconds\":0,\"resultCode\":200,\"success\":true}";
+    //    JSONObject jsonObject = JSONObject.parseObject(testa);
+    //    JSONArray data = jsonObject.getJSONArray("data");
+    //    Map<Integer, List<Object>> collect = Collections.emptyList().stream()
+    //            .collect(Collectors.groupingBy(Object::hashCode));
+    //    System.out.println(collect);
+    //}
+    //
+    //@Test
+    //public void test3() throws Exception {
         //String filePath = "";
         //File topFolder = new File(filePath);
         //Path topPath = FileSystems.getDefault().getPath(filePath);
@@ -308,29 +330,57 @@ public class SwaggerController {
         //
         //    System.out.print("文件数量" + moveFileList.size() + "文件名：" + "\n" + moveFileList.stream().map(File::getAbsolutePath).collect(Collectors.joining("\n")));
 
-            //moveFileList.forEach(file -> {
-            //    //移动后的路径
-            //    Path targetPath = topPath.resolve(file.getName());
-            //    Path sourcePath = FileSystems.getDefault().getPath(file.getAbsolutePath());
-            //    try {
-            //        Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
-            //    } catch (IOException e) {
-            //        e.printStackTrace();
-            //    }
-            //});
-            //获取要删除的文件所在的文件夹
-            //List<File> directoryList = Stream.of(files)
-            //        .filter(file -> file.isDirectory() && ObjectUtil.contains(file.getName(), "-"))
-            //        .filter(file -> ObjectUtil.isNotEmpty(file.listFiles()) && file.listFiles().length == 1 && ObjectUtil.contains(file.listFiles()[0].getName(), "torrent"))
-            //        .collect(Collectors.toList());
-            //
-            //System.out.println("文件夹数量" + directoryList.size() + "文件夹名：" + "\n" + directoryList.stream().map(File::getAbsolutePath).collect(Collectors.joining("\n")));
-            //
-            //directoryList.forEach(directory -> {
-            //    directory.listFiles()[0].delete();
-            //    directory.delete();
-            //});
+        //moveFileList.forEach(file -> {
+        //    //移动后的路径
+        //    Path targetPath = topPath.resolve(file.getName());
+        //    Path sourcePath = FileSystems.getDefault().getPath(file.getAbsolutePath());
+        //    try {
+        //        Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+        //    } catch (IOException e) {
+        //        e.printStackTrace();
+        //    }
+        //});
+        //获取要删除的文件所在的文件夹
+        //List<File> directoryList = Stream.of(files)
+        //        .filter(file -> file.isDirectory() && ObjectUtil.contains(file.getName(), "-"))
+        //        .filter(file -> ObjectUtil.isNotEmpty(file.listFiles()) && file.listFiles().length == 1 && ObjectUtil.contains(file.listFiles()[0].getName(), "torrent"))
+        //        .collect(Collectors.toList());
+        //
+        //System.out.println("文件夹数量" + directoryList.size() + "文件夹名：" + "\n" + directoryList.stream().map(File::getAbsolutePath).collect(Collectors.joining("\n")));
+        //
+        //directoryList.forEach(directory -> {
+        //    directory.listFiles()[0].delete();
+        //    directory.delete();
+        //});
 
-    }
+    //}
+    //public static void main(String[] args) throws Exception {
+    //
+    //
+    //    /**
+    //     * Spire注册许可证密钥Key
+    //     */
+    //    com.spire.license.LicenseProvider.setLicenseKey("E9QacOJzHgEAh+Oi//nJLO+QKHSf5qg9NzKDNwzvrbIW06cfle3NiCMFdMmI66ZYRrRvU4g4qQKiFnS1PCvGfN78KErMUeO50TPh8hAPYT56H7MZavxO35xWtfavzRWpdWgY8ZZvo7VYQEP+U/ohJGy5P8JbAjtnpanjdDkkGDijZxUgqlbs8PQ7iMI2a1Qzinf+i4S/48zeHBAvITCpKH0jBBlktRPSu6bZGoWBfVcgGTN/BuDLdFLOHeepfdg+H470v52fQ5KqC8qlw5wEdTO13TJqC1RPzSY6AWFftOd43pSOJ1YdqmSBALikejcFL3IxvlAlVG1lsvA9mQICyy1c9bZPC/W6SS12RT/VFQi6Ye188TP+iY5T170g+mlDLSerdVmahV8iVuyiiXR280rJghEDJg4Dg9lFDJGSVC1J3smAMcheXUm0m97hgG53ygwMDMqriKq1uJt+rRv5+fyAX88g/PDgc5Q6seDBJ93FKMesXXwGvmqigyeeCRLZJwafX3EK/0TQIzdGpws6h+V+DWalEquwFzC0XKl6jrylqO+SzpL3wlijlLNZgVUMYXojXsNh9n4/N50Uc9Ac9eayZDELKBiwuCyp6lPB/4LxeCjiS5mIwkOZ31FM01/m2Ylpwi5fr6HY2tK+bghwq9S5QDkJ76G1NNFp1lekSxgvBp5L140xb60UT3aSu1+nlCcvTOUvf5AFwZOEXq/vuiNr1cvwAbpSE4SvZcWg+44hO/cZ0hzTLyQE7oMykopquE7uj45ZnklHbruvNg7IJuAEuv7YlJfN3cFp/O3QY3wGcqhVrcouIEih5WZfSjIJvYtrWcN4ajTdjghZGykQpNBXdboNNS46QXW26VtIB8pbeHOnx3pLRzgXtBH/Mfe05UNGOVFIKRnCRqN5fkfhAv+FjFF3ne1gSzqRT/2CYvsq/mwbd+aVqbd/5NoeJ+ZsKLtHuldcNld8jxwWwUGDu31S+ZafW5KyHMKhHohx9zos4zugBvyeNfIMuMmcreuiirWUS2+6Y/svdo6EhMmTj8cSU2ESWD5rKh6XUgwQSlF2CLVwhOyuqkclYFXzHCZAhDp7Yc716YxcvirGOngjg06gaBCm0yovprBfKWLy00M0sMKpvI7TAd+257LVGBy3hmY+p5ZnJne/l9ahBvbAHWhPVDuzxM5gtux87jAOlAGwL/IUfOsYkqSndsy4molOrBao17GWqvrKeo5Xo8rGGVlWlJnNiIN3z8xV4EgEc/fhXC+9gsNM0KZ7FKby0Bo0/JsvAIB42/XSIjZdC4kBD51bi/j9+YkFHPqov4UvOloyEkPd8m0cXzNraCrGaU3E135oU5BydeYFVnbolKNSQgs4Pbsd/22AESUQiBY+MREwc5I8Yx4s9coobX9wu0Ns6igD2ahSrUjiMdsnIj0EYs5SKOQifHudO5NqCJNLDIsEbkJlOHE3tEET9Y1AiIF98IPvB8ZDB0VupWlMSvZu2ZHD7u9SzFb+08mIT1GJSldUMR2+jN7ZSB25eomKDh2ruBymqH+ya3Wv4jRrsBzMyagJ6ZNlPOrG1IXIYQ6usCkFN4O3QcS0UiNhL91jqyqdeI2dffu5s/Dw80fkCeLn6teTZNGP2mvt3HPcyAPAfjC90MysE14TCwQpUODLyugc9+Lt6jh5vBhVR8I5OCTQyvc8fWobrMemjw9ITCkF8ar/cmx79nrJjMvF5ipAMQkvbf4vMwoj/+o3M4kHF9BnZQhaa/G/p+yhTDA+TXOilH479nT31fgGAbGw8ZShBaFJs3i10bKfTcsOXA8WzMNuTAGQGOh7SrZBrhyVZPPqH4r1P6HLQ1rDF2fmni5Oc2V0Ov1MasG8l5ifOfW+I0NMLpgz63ztFiW4+9uQAv1jyAKW2VIMjMwOLdVjw2kjm4QF15Op1UArdP+gBr2MlhKeYg==");
+    //    Workbook workbookTemplate = WorkbookFactory.create(Files.newInputStream(Paths.get("/Users/link/Downloads/客户订单导入模板2024-01-11 13-33-13.xlsx")));
+    //    TemplateExportParams templateExportParams = new TemplateExportParams();
+    //    templateExportParams.setTemplateWb(workbookTemplate);
+    //    templateExportParams.setScanAllsheet(true);
+    //    Workbook workbook = ExcelExportUtil.exportExcel(templateExportParams, Collections.emptyMap());
+    //
+    //    com.spire.xls.Workbook spire = new com.spire.xls.Workbook();
+    //    spire.loadFromStream(StreamUtils.workbookConvertorStream(workbook));
+    //    for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
+    //        spire.getWorksheets().get(i).getPageSetup().setFitToPagesWide(1);
+    //    }
+    //    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+    //    spire.saveToStream(byteArrayOutputStream, FileFormat.PDF);
+    //    Files.write(Paths.get("/Users/link/Downloads/客户订单导入模板2024-01-11 13-33-13.pdf"), byteArrayOutputStream.toByteArray());
+    //    Arrays.toString(byteArrayOutputStream.toByteArray());
+    //        try {
+    //            byteArrayOutputStream.close();
+    //        } catch (IOException ioe) {
+    //        }
+    //
+    //}
 
 }

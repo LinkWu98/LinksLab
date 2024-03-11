@@ -19,86 +19,48 @@
         }
     ],
     "paths": {
-        "/swagger/oem/add": {
-            "post": {
+        "/swagger/list": {
+            "get": {
                 "tags": [
                     "swagger-controller"
                 ],
-                "summary": "厂端代创客户订单",
-                "operationId": "oemAddManufacturerOrderUsingPOST",
-                "consumes": [
-                    "application/json"
-                ],
+                "summary": "根据车型年款配置，查询强弱代理配置",
+                "operationId": "strongWeakAgentByConditionUsingGET",
                 "produces": [
                     "*/*"
                 ],
                 "parameters": [
                     {
-                        "in": "body",
-                        "name": "厂端代创客户订单",
-                        "description": "厂端代创客户订单",
+                        "name": "configId",
+                        "in": "query",
+                        "description": "配置ID",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "modelId",
+                        "in": "query",
+                        "description": "车型ID",
                         "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/OemRetailOrderCreateDTO"
-                        }
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "modelYear",
+                        "in": "query",
+                        "description": "年款",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/RestResultResponse«int»"
+                            "$ref": "#/definitions/RestResultResponse«List«强弱代理配置表»»"
                         }
-                    },
-                    "201": {
-                        "description": "Created"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not Found"
-                    }
-                }
-            }
-        },
-        "/swagger/oem/import": {
-            "post": {
-                "tags": [
-                    "swagger-controller"
-                ],
-                "summary": "厂端代创客户订单",
-                "operationId": "oemImportManufacturerOrderUsingPOST",
-                "consumes": [
-                    "multipart/form-data"
-                ],
-                "produces": [
-                    "*/*"
-                ],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "file",
-                        "description": "file",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "format": "binary"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/ImportResultDto«OemImportSalesOrderExcelVO»"
-                        }
-                    },
-                    "201": {
-                        "description": "Created"
                     },
                     "401": {
                         "description": "Unauthorized"
@@ -114,155 +76,14 @@
         }
     },
     "definitions": {
-        "ImportResultDto«OemImportSalesOrderExcelVO»": {
-            "type": "object",
-            "properties": {
-                "dataList": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/OemImportSalesOrderExcelVO"
-                    }
-                },
-                "errorList": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/OemImportSalesOrderExcelVO"
-                    }
-                },
-                "sucess": {
-                    "type": "boolean"
-                }
-            },
-            "title": "ImportResultDto«OemImportSalesOrderExcelVO»"
-        },
-        "OemImportSalesOrderExcelVO": {
-            "type": "object",
-            "properties": {
-                "configCode": {
-                    "type": "string",
-                    "description": "业务配置代码"
-                },
-                "configName": {
-                    "type": "string",
-                    "description": "配置"
-                },
-                "customerNo": {
-                    "type": "string",
-                    "description": "客户编号"
-                },
-                "deliveryOwnerCode": {
-                    "type": "string",
-                    "description": "订车门店代码"
-                },
-                "errorMsg": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "modelName": {
-                    "type": "string",
-                    "description": "车型"
-                },
-                "modelYear": {
-                    "type": "string",
-                    "description": "年款"
-                },
-                "rowNO": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "strongWeakAgent": {
-                    "type": "string",
-                    "description": "销售模式"
-                }
-            },
-            "title": "OemImportSalesOrderExcelVO"
-        },
-        "OemRetailOrderCreateDTO": {
-            "type": "object",
-            "properties": {
-                "activityId": {
-                    "type": "string",
-                    "description": "订单创建-市场活动"
-                },
-                "consultant": {
-                    "type": "string",
-                    "description": "销售顾问"
-                },
-                "contactName": {
-                    "type": "string",
-                    "description": "联系人姓名"
-                },
-                "contactPhone": {
-                    "type": "string",
-                    "description": "联系人电话"
-                },
-                "customerActivityId": {
-                    "type": "string",
-                    "description": "订单创建-市场活动(集客)"
-                },
-                "customerAddress": {
-                    "type": "string",
-                    "description": "联系地址"
-                },
-                "customerBusinessId": {
-                    "type": "string",
-                    "description": "商机id"
-                },
-                "customerCertificateNo": {
-                    "type": "string",
-                    "description": "证件号码"
-                },
-                "customerCtCode": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "证件类型"
-                },
-                "customerId": {
-                    "type": "string",
-                    "description": "客户ID"
-                },
-                "customerName": {
-                    "type": "string",
-                    "description": "客户姓名"
-                },
-                "customerNo": {
-                    "type": "string",
-                    "description": "客户编号"
-                },
-                "deliveryOwnerCode": {
-                    "type": "string",
-                    "description": "订车门店"
-                },
-                "fourName": {
-                    "type": "string",
-                    "description": "配置"
-                },
-                "secondName": {
-                    "type": "string",
-                    "description": "车型"
-                },
-                "strongWeakAgent": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "销售模式"
-                },
-                "thirdName": {
-                    "type": "string",
-                    "description": "年款"
-                }
-            },
-            "title": "OemRetailOrderCreateDTO",
-            "description": "厂端代创客户订单DTO"
-        },
-        "RestResultResponse«int»": {
+        "RestResultResponse«List«强弱代理配置表»»": {
             "type": "object",
             "properties": {
                 "data": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/强弱代理配置表"
+                    }
                 },
                 "elapsedMilliseconds": {
                     "type": "integer",
@@ -279,7 +100,42 @@
                     "type": "boolean"
                 }
             },
-            "title": "RestResultResponse«int»"
+            "title": "RestResultResponse«List«强弱代理配置表»»"
+        },
+        "强弱代理配置表": {
+            "type": "object",
+            "properties": {
+                "configId": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "configId"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "id"
+                },
+                "modeYear": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "modeYear"
+                },
+                "modelId": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "modelId"
+                },
+                "ownerCode": {
+                    "type": "string",
+                    "description": "ownerCode"
+                },
+                "salesMode": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "salesMode"
+                }
+            },
+            "title": "强弱代理配置表"
         }
     }
 }

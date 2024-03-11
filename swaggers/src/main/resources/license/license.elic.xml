@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<License xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Key="E9QacOJzHgEAh+Oi//nJLO+QKHSf5qg9NzKDNwzvrbIW06cfle3NiCMFdMmI66ZYRrRvU4g4qQKiFnS1PCvGfN78KErMUeO50TPh8hAPYT56H7MZavxO35xWtfavzRWpdWgY8ZZvo7VYQEP+U/ohJGy5P8JbAjtnpanjdDkkGDijZxUgqlbs8PQ7iMI2a1Qzinf+i4S/48zeHBAvITCpKH0jBBlktRPSu6bZGoWBfVcgGTN/BuDLdFLOHeepfdg+H470v52fQ5KqC8qlw5wEdTO13TJqC1RPzSY6AWFftOd43pSOJ1YdqmSBALikejcFL3IxvlAlVG1lsvA9mQICyy1c9bZPC/W6SS12RT/VFQi6Ye188TP+iY5T170g+mlDLSerdVmahV8iVuyiiXR280rJghEDJg4Dg9lFDJGSVC1J3smAMcheXUm0m97hgG53ygwMDMqriKq1uJt+rRv5+fyAX88g/PDgc5Q6seDBJ93FKMesXXwGvmqigyeeCRLZJwafX3EK/0TQIzdGpws6h+V+DWalEquwFzC0XKl6jrylqO+SzpL3wlijlLNZgVUMYXojXsNh9n4/N50Uc9Ac9eayZDELKBiwuCyp6lPB/4LxeCjiS5mIwkOZ31FM01/m2Ylpwi5fr6HY2tK+bghwq9S5QDkJ76G1NNFp1lekSxgvBp5L140xb60UT3aSu1+nlCcvTOUvf5AFwZOEXq/vuiNr1cvwAbpSE4SvZcWg+44hO/cZ0hzTLyQE7oMykopquE7uj45ZnklHbruvNg7IJuAEuv7YlJfN3cFp/O3QY3wGcqhVrcouIEih5WZfSjIJvYtrWcN4ajTdjghZGykQpNBXdboNNS46QXW26VtIB8pbeHOnx3pLRzgXtBH/Mfe05UNGOVFIKRnCRqN5fkfhAv+FjFF3ne1gSzqRT/2CYvsq/mwbd+aVqbd/5NoeJ+ZsKLtHuldcNld8jxwWwUGDu31S+ZafW5KyHMKhHohx9zos4zugBvyeNfIMuMmcreuiirWUS2+6Y/svdo6EhMmTj8cSU2ESWD5rKh6XUgwQSlF2CLVwhOyuqkclYFXzHCZAhDp7Yc716YxcvirGOngjg06gaBCm0yovprBfKWLy00M0sMKpvI7TAd+257LVGBy3hmY+p5ZnJne/l9ahBvbAHWhPVDuzxM5gtux87jAOlAGwL/IUfOsYkqSndsy4molOrBao17GWqvrKeo5Xo8rGGVlWlJnNiIN3z8xV4EgEc/fhXC+9gsNM0KZ7FKby0Bo0/JsvAIB42/XSIjZdC4kBD51bi/j9+YkFHPqov4UvOloyEkPd8m0cXzNraCrGaU3E135oU5BydeYFVnbolKNSQgs4Pbsd/22AESUQiBY+MREwc5I8Yx4s9coobX9wu0Ns6igD2ahSrUjiMdsnIj0EYs5SKOQifHudO5NqCJNLDIsEbkJlOHE3tEET9Y1AiIF98IPvB8ZDB0VupWlMSvZu2ZHD7u9SzFb+08mIT1GJSldUMR2+jN7ZSB25eomKDh2ruBymqH+ya3Wv4jRrsBzMyagJ6ZNlPOrG1IXIYQ6usCkFN4O3QcS0UiNhL91jqyqdeI2dffu5s/Dw80fkCeLn6teTZNGP2mvt3HPcyAPAfjC90MysE14TCwQpUODLyugc9+Lt6jh5vBhVR8I5OCTQyvc8fWobrMemjw9ITCkF8ar/cmx79nrJjMvF5ipAMQkvbf4vMwoj/+o3M4kHF9BnZQhaa/G/p+yhTDA+TXOilH479nT31fgGAbGw8ZShBaFJs3i10bKfTcsOXA8WzMNuTAGQGOh7SrZBrhyVZPPqH4r1P6HLQ1rDF2fmni5Oc2V0Ov1MasG8l5ifOfW+I0NMLpgz63ztFiW4+9uQAv1jyAKW2VIMjMwOLdVjw2kjm4QF15Op1UArdP+gBr2MlhKeYg==" Version="1.3">
+	<Type>Runtime</Type>
+	<Username>用友汽车信息科技（上海）股份有限公司</Username>
+	<Email>liuxudong@yonyou.com</Email>
+	<Organization>用友汽车信息科技（上海）股份有限公司</Organization>
+	<LicensedDate>2020-07-01T00:00:00Z</LicensedDate>
+	<ExpiredDate>2021-07-01T00:00:00Z</ExpiredDate>
+	<Products>
+		<Product>
+			<Name>Spire.XLS for JAVA</Name>
+			<Version>3.6</Version>
+			<Subscription>
+				<NumberOfPermittedDeveloper>1</NumberOfPermittedDeveloper>
+				<NumberOfPermittedSite>2147483647</NumberOfPermittedSite>
+			</Subscription>
+		</Product>
+		<Product>
+			<Name>Spire.PDF for JAVA</Name>
+			<Version>3.6</Version>
+			<Subscription>
+				<NumberOfPermittedDeveloper>1</NumberOfPermittedDeveloper>
+				<NumberOfPermittedSite>2147483647</NumberOfPermittedSite>
+			</Subscription>
+		</Product>
+	</Products>
+	<Issuer>
+		<Name>e-iceblue</Name>
+		<Email>sales@e-iceblue.com</Email>
+		<Url>http://www.e-iceblue.com</Url>
+	</Issuer>
+</License>
