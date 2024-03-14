@@ -19,48 +19,39 @@
         }
     ],
     "paths": {
-        "/swagger/list": {
-            "get": {
+        "/swagger/presale/list": {
+            "post": {
                 "tags": [
                     "swagger-controller"
                 ],
-                "summary": "根据车型年款配置，查询强弱代理配置",
-                "operationId": "strongWeakAgentByConditionUsingGET",
+                "summary": "车型ID查询预售配置",
+                "operationId": "getPreSaleConfigListByModelIdsUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
                 "produces": [
                     "*/*"
                 ],
                 "parameters": [
                     {
-                        "name": "configId",
-                        "in": "query",
-                        "description": "配置ID",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "modelId",
-                        "in": "query",
-                        "description": "车型ID",
+                        "in": "body",
+                        "name": "smallOrderQueryDTO",
+                        "description": "smallOrderQueryDTO",
                         "required": true,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "modelYear",
-                        "in": "query",
-                        "description": "年款",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
+                        "schema": {
+                            "$ref": "#/definitions/车型ID查询销售类型对应配置的DTO"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/RestResultResponse«List«强弱代理配置表»»"
+                            "$ref": "#/definitions/RestResultResponse«List«小订流程启用配置表VO»»"
                         }
+                    },
+                    "201": {
+                        "description": "Created"
                     },
                     "401": {
                         "description": "Unauthorized"
@@ -76,13 +67,13 @@
         }
     },
     "definitions": {
-        "RestResultResponse«List«强弱代理配置表»»": {
+        "RestResultResponse«List«小订流程启用配置表VO»»": {
             "type": "object",
             "properties": {
                 "data": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/强弱代理配置表"
+                        "$ref": "#/definitions/小订流程启用配置表VO"
                     }
                 },
                 "elapsedMilliseconds": {
@@ -100,42 +91,122 @@
                     "type": "boolean"
                 }
             },
-            "title": "RestResultResponse«List«强弱代理配置表»»"
+            "title": "RestResultResponse«List«小订流程启用配置表VO»»"
         },
-        "强弱代理配置表": {
+        "小订流程启用配置表VO": {
             "type": "object",
             "properties": {
-                "configId": {
+                "bigOrderBeginTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "大订开始时间"
+                },
+                "currentDuringLargeDepositPeriod": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "configId"
+                    "description": "当前时间是否任意活动的小定期间，1004（与当前车型的预售配置不一定相关，所有查询到的数据中，是否有在大定期间）"
+                },
+                "currentDuringSmallDepositPeriod": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "当前时间是否任意活动的小定期间，1004（与当前车型的预售配置不一定相关，所有查询到的数据中，是否有在小订期间）"
+                },
+                "eventEndTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "活动结束时间"
                 },
                 "id": {
                     "type": "integer",
                     "format": "int64",
-                    "description": "id"
+                    "description": "主键id"
                 },
-                "modeYear": {
+                "intentionAmount": {
+                    "type": "number",
+                    "description": "意向金金额"
+                },
+                "isValid": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "modeYear"
+                    "description": "是否启用"
+                },
+                "largeDepositPeriod": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否大定期间，1004"
                 },
                 "modelId": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "modelId"
+                    "description": "车型ID"
+                },
+                "paramCheckDisable": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否不校验配置外色内饰选装包"
+                },
+                "saleType": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "订单类型代码"
+                },
+                "saleTypeName": {
+                    "type": "string",
+                    "description": "订单类型名称"
+                },
+                "smallDepositPeriod": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否小订期间，1004"
+                },
+                "smallOrderBeginTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "小订开始时间"
+                },
+                "smallOrderEndTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "小订结束时间"
+                },
+                "wrapPriceEndTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "包装价格启用结束时间"
+                },
+                "wrapPriceStartTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "包装价格启用开始时间"
+                }
+            },
+            "title": "小订流程启用配置表VO"
+        },
+        "车型ID查询销售类型对应配置的DTO": {
+            "type": "object",
+            "properties": {
+                "modelIdList": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
                 },
                 "ownerCode": {
                     "type": "string",
-                    "description": "ownerCode"
+                    "description": "经销商代码"
                 },
-                "salesMode": {
+                "purchasePhone": {
+                    "type": "string",
+                    "description": "下单人手机号"
+                },
+                "saleType": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "salesMode"
+                    "description": "订单销售类型"
                 }
             },
-            "title": "强弱代理配置表"
+            "title": "车型ID查询销售类型对应配置的DTO"
         }
     }
 }

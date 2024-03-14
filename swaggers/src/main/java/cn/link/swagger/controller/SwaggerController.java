@@ -7,6 +7,8 @@ import cn.link.swagger.newbie.retail.OemImportSalesOrderExcelVO;
 import cn.link.swagger.newbie.retail.OemRetailOrderCreateDTO;
 import cn.link.swagger.newbie.retail.PotentialForOrderDTO;
 import cn.link.swagger.newbie.retail.SalesOrdersDTO;
+import cn.link.swagger.newbie.retail.SmallOrderEnableVO;
+import cn.link.swagger.newbie.retail.SmallOrderQueryDTO;
 import cn.link.swagger.newbie.retail.TcStrongWeakAgentVO;
 import cn.link.swagger.newbie.retail.importClazz.ImportResultDto;
 import cn.link.swagger.utils.StreamUtils;
@@ -244,16 +246,21 @@ public class SwaggerController {
     //}
 
 
-    @GetMapping("/list")
-    @ApiOperation(value = "根据车型年款配置，查询强弱代理配置")
-    @ApiImplicitParams({
-            @ApiImplicitParam(value = "车型ID", name = "modelId", required = true),
-            @ApiImplicitParam(value = "年款", name = "modelYear", required = false),
-            @ApiImplicitParam(value = "配置ID", name = "configId", required = false),
-    })
-    public RestResultResponse<List<TcStrongWeakAgentVO>> strongWeakAgentByCondition(@RequestParam(value = "modelId") Integer modelId,
-                                                                                    @RequestParam(value = "modelYear", required = false) Integer modelYear,
-                                                                                    @RequestParam(value = "configId", required = false) Integer configId) {
+    //@GetMapping("/list")
+    //@ApiOperation(value = "根据车型年款配置，查询强弱代理配置")
+    //@ApiImplicitParams({
+    //        @ApiImplicitParam(value = "车型ID", name = "modelId", required = true),
+    //        @ApiImplicitParam(value = "年款", name = "modelYear", required = false),
+    //        @ApiImplicitParam(value = "配置ID", name = "configId", required = false),
+    //})
+    //public RestResultResponse<List<TcStrongWeakAgentVO>> strongWeakAgentByCondition(@RequestParam(value = "modelId") Integer modelId,
+    //                                                                                @RequestParam(value = "modelYear", required = false) Integer modelYear,
+    //                                                                                @RequestParam(value = "configId", required = false) Integer configId) {
+    //    return null;
+    //}
+    @ApiOperation("车型ID查询预售配置")
+    @PostMapping("/presale/list")
+    public RestResultResponse<List<SmallOrderEnableVO>> getPreSaleConfigListByModelIds(@RequestBody SmallOrderQueryDTO smallOrderQueryDTO) {
         return null;
     }
 
