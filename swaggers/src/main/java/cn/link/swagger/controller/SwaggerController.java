@@ -3,6 +3,8 @@ package cn.link.swagger.controller;
 import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.entity.TemplateExportParams;
 import cn.link.swagger.newbie.common.RestResultResponse;
+import cn.link.swagger.newbie.retail.MaterialDTO;
+import cn.link.swagger.newbie.retail.MaterialVO;
 import cn.link.swagger.newbie.retail.OemImportSalesOrderExcelVO;
 import cn.link.swagger.newbie.retail.OemRetailOrderCreateDTO;
 import cn.link.swagger.newbie.retail.PotentialForOrderDTO;
@@ -27,6 +29,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.Test;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -258,9 +261,42 @@ public class SwaggerController {
     //                                                                                @RequestParam(value = "configId", required = false) Integer configId) {
     //    return null;
     //}
-    @ApiOperation("车型ID查询预售配置")
-    @PostMapping("/presale/list")
-    public RestResultResponse<List<SmallOrderEnableVO>> getPreSaleConfigListByModelIds(@RequestBody SmallOrderQueryDTO smallOrderQueryDTO) {
+    //@ApiOperation("车型ID查询预售配置")
+    //@PostMapping("/presale/list")
+    //public RestResultResponse<List<SmallOrderEnableVO>> getPreSaleConfigListByModelIds(@RequestBody SmallOrderQueryDTO smallOrderQueryDTO) {
+    //    return null;
+    //}
+
+    ///**
+    // * 根据物料级别查询物料信息
+    // * <p>
+    // * 目前主要用于查询车型物料数据，包含了订单类型对应的车型的过滤逻辑、短促车型的过滤逻辑
+    // */
+    //@ApiOperation(notes = "根据物料级别查询物料信息", value = "根据物料级别查询物料信息")
+    //@GetMapping("/level/{materialLevel}")
+    //@ApiImplicitParams({
+    //        @ApiImplicitParam(name = "materialLevel", required = true, dataType = "int", paramType = "query", value = "物料level"),
+    //        @ApiImplicitParam(name = "materialDTO", required = true, dataType = "MaterialDTO", paramType = "query", value = "物料参数"),
+    //        @ApiImplicitParam(name = "isNew", required = true, dataType = "String", paramType = "query", value = "isNew")
+    //})
+    //RestResultResponse<List<MaterialVO>> listSuperiorMaterialsById(@PathVariable("materialLevel") Integer materialLevel,
+    //                                           MaterialDTO materialDTO,
+    //                                           @RequestParam(value = "isNew", required = false) String isNew){
+    //    return null;
+    //}
+
+    /**
+     * 根据id获取这个id下的所有物料
+     *
+     * 目前主要用于查询年款和配置，包含了短促过滤年款配置逻辑
+     */
+    @ApiOperation(notes = "根据id获取这个id下的所有物料", value = "根据id获取这个id下的所有物料")
+    @GetMapping("/{materialId}/items")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "materialId", required = true, dataType = "String", paramType = "query", value = "materialId"),
+            @ApiImplicitParam(name = "materialDTO", required = true, dataType = "MaterialDTO", paramType = "query", value = "物料参数")
+    })
+    RestResultResponse<List<MaterialVO>> listMaterialsById(@PathVariable("materialId") String materialId, MaterialDTO materialDTO) {
         return null;
     }
 

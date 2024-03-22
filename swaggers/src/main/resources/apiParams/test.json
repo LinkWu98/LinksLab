@@ -19,39 +19,164 @@
         }
     ],
     "paths": {
-        "/swagger/presale/list": {
-            "post": {
+        "/swagger/{materialId}/items": {
+            "get": {
                 "tags": [
                     "swagger-controller"
                 ],
-                "summary": "车型ID查询预售配置",
-                "operationId": "getPreSaleConfigListByModelIdsUsingPOST",
-                "consumes": [
-                    "application/json"
-                ],
+                "summary": "根据id获取这个id下的所有物料",
+                "description": "根据id获取这个id下的所有物料",
+                "operationId": "listMaterialsByIdUsingGET",
                 "produces": [
                     "*/*"
                 ],
                 "parameters": [
                     {
-                        "in": "body",
-                        "name": "smallOrderQueryDTO",
-                        "description": "smallOrderQueryDTO",
+                        "name": "dataSources",
+                        "in": "query",
+                        "description": "数据来源",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "directRetailFlag",
+                        "in": "query",
+                        "description": "1：直售客户订单查询；2：客户订单查询",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "grandParentMaterialId",
+                        "in": "query",
+                        "description": "父类的父类id",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "isDirectModel",
+                        "in": "query",
+                        "description": "是否直售",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "isPreSale",
+                        "in": "query",
+                        "description": "售前",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "isUsedCar",
+                        "in": "query",
+                        "description": "是否二手车",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "isValid",
+                        "in": "query",
+                        "description": "是否有效",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "materialCode",
+                        "in": "query",
+                        "description": "物料代码",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "materialDTO",
+                        "description": "物料参数",
+                        "required": true
+                    },
+                    {
+                        "name": "materialId",
+                        "in": "query",
+                        "description": "materialId",
                         "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/车型ID查询销售类型对应配置的DTO"
-                        }
+                        "type": "string"
+                    },
+                    {
+                        "name": "materialLevel",
+                        "in": "query",
+                        "description": "物料级别",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "materialNameZh",
+                        "in": "query",
+                        "description": "物料名称",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "onSale",
+                        "in": "query",
+                        "description": "是否在售",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "parentMaterialId",
+                        "in": "query",
+                        "description": "父类id",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "queryMode",
+                        "in": "query",
+                        "description": "查询方式：1为精确,2为模糊",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "queryScope",
+                        "in": "query",
+                        "description": "查询范围：0：售前有效+售后所有 1：售后有效 2：售前所有 3：售前有效",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "saleType",
+                        "in": "query",
+                        "description": "销售类型",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "soNoId",
+                        "in": "query",
+                        "description": "订单id",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/RestResultResponse«List«小订流程启用配置表VO»»"
+                            "$ref": "#/definitions/RestResultResponse«List«VehicleProductBrandVO»»"
                         }
-                    },
-                    "201": {
-                        "description": "Created"
                     },
                     "401": {
                         "description": "Unauthorized"
@@ -67,13 +192,13 @@
         }
     },
     "definitions": {
-        "RestResultResponse«List«小订流程启用配置表VO»»": {
+        "RestResultResponse«List«VehicleProductBrandVO»»": {
             "type": "object",
             "properties": {
                 "data": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/小订流程启用配置表VO"
+                        "$ref": "#/definitions/VehicleProductBrandVO"
                     }
                 },
                 "elapsedMilliseconds": {
@@ -91,122 +216,111 @@
                     "type": "boolean"
                 }
             },
-            "title": "RestResultResponse«List«小订流程启用配置表VO»»"
+            "title": "RestResultResponse«List«VehicleProductBrandVO»»"
         },
-        "小订流程启用配置表VO": {
+        "VehicleProductBrandVO": {
             "type": "object",
             "properties": {
-                "bigOrderBeginTime": {
+                "basedataId": {
                     "type": "string",
-                    "format": "date-time",
-                    "description": "大订开始时间"
+                    "description": "基础数据Id"
                 },
-                "currentDuringLargeDepositPeriod": {
+                "dataSources": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "当前时间是否任意活动的小定期间，1004（与当前车型的预售配置不一定相关，所有查询到的数据中，是否有在大定期间）"
+                    "description": "数据来源(1045)"
                 },
-                "currentDuringSmallDepositPeriod": {
+                "fuelType": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "当前时间是否任意活动的小定期间，1004（与当前车型的预售配置不一定相关，所有查询到的数据中，是否有在小订期间）"
+                    "description": "燃料类型(4106)"
                 },
-                "eventEndTime": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "活动结束时间"
-                },
-                "id": {
+                "isAfterSale": {
                     "type": "integer",
-                    "format": "int64",
-                    "description": "主键id"
+                    "format": "int32",
+                    "description": "是否售后物料"
                 },
-                "intentionAmount": {
-                    "type": "number",
-                    "description": "意向金金额"
+                "isDirectModel": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否直售"
+                },
+                "isPreSale": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否整车物料"
+                },
+                "isUsedCar": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "是否二手车"
                 },
                 "isValid": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "是否启用"
+                    "description": "是否有效"
                 },
-                "largeDepositPeriod": {
+                "materialCode": {
+                    "type": "string",
+                    "description": "物料代码(可能是组合代码)，唯一索引"
+                },
+                "materialId": {
+                    "type": "string",
+                    "description": "物料id"
+                },
+                "materialLevel": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "是否大定期间，1004"
+                    "description": "物料级别"
                 },
-                "modelId": {
+                "materialNameEn": {
+                    "type": "string",
+                    "description": "物料英文名称"
+                },
+                "materialNameZh": {
+                    "type": "string",
+                    "description": "物料中文名称"
+                },
+                "materialShortCode": {
+                    "type": "string",
+                    "description": "物料代码"
+                },
+                "materialYear": {
+                    "type": "string",
+                    "description": "物料年款"
+                },
+                "oemDirectivePrice": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "车厂零售指导价"
+                },
+                "onSale": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "车型ID"
+                    "description": "是否在售"
                 },
-                "paramCheckDisable": {
+                "parentMaterialId": {
+                    "type": "string",
+                    "description": "上级ID"
+                },
+                "purchasePrice": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "采购单价(不含税)"
+                },
+                "taxPurchasePrice": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "含税采购价"
+                },
+                "vehicleSources": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "是否不校验配置外色内饰选装包"
-                },
-                "saleType": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "订单类型代码"
-                },
-                "saleTypeName": {
-                    "type": "string",
-                    "description": "订单类型名称"
-                },
-                "smallDepositPeriod": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "是否小订期间，1004"
-                },
-                "smallOrderBeginTime": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "小订开始时间"
-                },
-                "smallOrderEndTime": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "小订结束时间"
-                },
-                "wrapPriceEndTime": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "包装价格启用结束时间"
-                },
-                "wrapPriceStartTime": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "包装价格启用开始时间"
+                    "description": "车辆来源"
                 }
             },
-            "title": "小订流程启用配置表VO"
-        },
-        "车型ID查询销售类型对应配置的DTO": {
-            "type": "object",
-            "properties": {
-                "modelIdList": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer",
-                        "format": "int32"
-                    }
-                },
-                "ownerCode": {
-                    "type": "string",
-                    "description": "经销商代码"
-                },
-                "purchasePhone": {
-                    "type": "string",
-                    "description": "下单人手机号"
-                },
-                "saleType": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "订单销售类型"
-                }
-            },
-            "title": "车型ID查询销售类型对应配置的DTO"
+            "title": "VehicleProductBrandVO",
+            "description": "条件查询的品牌数据VO"
         }
     }
 }
