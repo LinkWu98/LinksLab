@@ -3,6 +3,8 @@ package cn.link.swagger.controller;
 import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.entity.TemplateExportParams;
 import cn.link.swagger.newbie.common.RestResultResponse;
+import cn.link.swagger.newbie.retail.InvoiceApplyQueryDTO;
+import cn.link.swagger.newbie.retail.InvoiceApplyResultVo;
 import cn.link.swagger.newbie.retail.MaterialDTO;
 import cn.link.swagger.newbie.retail.MaterialVO;
 import cn.link.swagger.newbie.retail.OemImportSalesOrderExcelVO;
@@ -13,6 +15,7 @@ import cn.link.swagger.newbie.retail.SmallOrderEnableVO;
 import cn.link.swagger.newbie.retail.SmallOrderQueryDTO;
 import cn.link.swagger.newbie.retail.TcStrongWeakAgentVO;
 import cn.link.swagger.newbie.retail.importClazz.ImportResultDto;
+import cn.link.swagger.newbie.retail.refund.QueryRetailOrderDTO;
 import cn.link.swagger.utils.StreamUtils;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -48,6 +51,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -290,13 +294,38 @@ public class SwaggerController {
      *
      * 目前主要用于查询年款和配置，包含了短促过滤年款配置逻辑
      */
-    @ApiOperation(notes = "根据id获取这个id下的所有物料", value = "根据id获取这个id下的所有物料")
-    @GetMapping("/{materialId}/items")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "materialId", required = true, dataType = "String", paramType = "query", value = "materialId"),
-            @ApiImplicitParam(name = "materialDTO", required = true, dataType = "MaterialDTO", paramType = "query", value = "物料参数")
-    })
-    RestResultResponse<List<MaterialVO>> listMaterialsById(@PathVariable("materialId") String materialId, MaterialDTO materialDTO) {
+    //@ApiOperation(notes = "根据id获取这个id下的所有物料", value = "根据id获取这个id下的所有物料")
+    //@GetMapping("/{materialId}/items")
+    //@ApiImplicitParams({
+    //        @ApiImplicitParam(name = "materialId", required = true, dataType = "String", paramType = "query", value = "materialId"),
+    //        @ApiImplicitParam(name = "materialDTO", required = true, dataType = "MaterialDTO", paramType = "query", value = "物料参数")
+    //})
+    //RestResultResponse<List<MaterialVO>> listMaterialsById(@PathVariable("materialId") String materialId, MaterialDTO materialDTO) {
+    //    return null;
+    //}
+
+    /**
+     * 分页查询开票申请
+     * @param params
+     * @return
+     */
+    //@ApiOperation(value = "分页查询开票申请")
+    //@PostMapping(value = "/invoiceApply/listByPage")
+    //public RestResultResponse<IPage<InvoiceApplyResultVo>> listByPage(@RequestBody InvoiceApplyQueryDTO params) {
+    //    return null;
+    //}
+
+    /**
+     * 取消客户订单
+     *
+     * @param queryRetailOrderDTO
+     * @return java.lang.Integer
+     * @author jhy
+     * @since 2020-06-23
+     */
+    @ApiOperation(value = "取消客户订单-进入审批")
+    @PostMapping("/orders/orderAudit/countermandRetailOrder")
+    public RestResultResponse<Integer> countermandRetailOrder(@RequestBody QueryRetailOrderDTO queryRetailOrderDTO) {
         return null;
     }
 
