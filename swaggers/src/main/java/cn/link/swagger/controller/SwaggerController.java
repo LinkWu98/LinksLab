@@ -2,6 +2,7 @@ package cn.link.swagger.controller;
 
 import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.entity.TemplateExportParams;
+import cn.hutool.core.util.ObjectUtil;
 import cn.link.swagger.newbie.common.RestResultResponse;
 import cn.link.swagger.newbie.retail.InvoiceApplyQueryDTO;
 import cn.link.swagger.newbie.retail.InvoiceApplyResultVo;
@@ -9,6 +10,7 @@ import cn.link.swagger.newbie.retail.MaterialDTO;
 import cn.link.swagger.newbie.retail.MaterialVO;
 import cn.link.swagger.newbie.retail.OemImportSalesOrderExcelVO;
 import cn.link.swagger.newbie.retail.OemRetailOrderCreateDTO;
+import cn.link.swagger.newbie.retail.OrderCancelReasonsParamDTO;
 import cn.link.swagger.newbie.retail.PotentialForOrderDTO;
 import cn.link.swagger.newbie.retail.SalesOrdersDTO;
 import cn.link.swagger.newbie.retail.SmallOrderEnableVO;
@@ -31,6 +33,7 @@ import io.swagger.annotations.ApiParam;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.Test;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -315,19 +318,19 @@ public class SwaggerController {
     //    return null;
     //}
 
-    /**
-     * 取消客户订单
-     *
-     * @param queryRetailOrderDTO
-     * @return java.lang.Integer
-     * @author jhy
-     * @since 2020-06-23
-     */
-    @ApiOperation(value = "取消客户订单-进入审批")
-    @PostMapping("/orders/orderAudit/countermandRetailOrder")
-    public RestResultResponse<Integer> countermandRetailOrder(@RequestBody QueryRetailOrderDTO queryRetailOrderDTO) {
-        return null;
-    }
+    ///**
+    // * 取消客户订单
+    // *
+    // * @param queryRetailOrderDTO
+    // * @return java.lang.Integer
+    // * @author jhy
+    // * @since 2020-06-23
+    // */
+    //@ApiOperation(value = "取消客户订单-进入审批")
+    //@PostMapping("/orders/orderAudit/countermandRetailOrder")
+    //public RestResultResponse<Integer> countermandRetailOrder(@RequestBody QueryRetailOrderDTO queryRetailOrderDTO) {
+    //    return null;
+    //}
 
     //@Test
     //public void test() {
@@ -424,6 +427,16 @@ public class SwaggerController {
         //    directory.listFiles()[0].delete();
         //    directory.delete();
         //});
+
+    /**
+     * 新增订单取消原因
+     */
+    @PostMapping("/order/cancelReason/save")
+    @ApiOperation("新增订单取消原因")
+    public RestResultResponse<Boolean> saveOrderCancelReasons(@ApiParam(name = "订单取消原因DTO", value = "订单取消原因DTO")
+                                          @RequestBody @Validated OrderCancelReasonsParamDTO orderCancelReasonsParamDTO) {
+        return null;
+    }
 
     //}
     //public static void main(String[] args) throws Exception {
