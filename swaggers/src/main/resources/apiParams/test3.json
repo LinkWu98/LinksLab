@@ -1,0 +1,672 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "isChangeDeliveryOwnerCode": {
+      "type": "number"
+    },
+    "cancelReason": {
+      "type": "string",
+      "description": "取消原因\t"
+    },
+    "cancelType": {
+      "type": "number",
+      "description": "取消原因类别\t"
+    },
+    "colorId": {
+      "type": "string",
+      "description": "外色ID\t"
+    },
+    "colorName": {
+      "type": "string",
+      "description": "外色name\t"
+    },
+    "colorType": {
+      "type": "number",
+      "description": "外色类型\t"
+    },
+    "confirmOverchargeStatus": {
+      "type": "number",
+      "description": "超收确认\t"
+    },
+    "consultant": {
+      "type": "string",
+      "description": "销售顾问\t"
+    },
+    "consultantId": {
+      "type": "string",
+      "description": "销售顾问Id\t"
+    },
+    "contactName": {
+      "type": "string",
+      "description": "联系人名称\t"
+    },
+    "contractEarnest": {
+      "type": "number",
+      "description": "订金\t"
+    },
+    "contractRemark": {
+      "type": "string",
+      "description": "合同备注\t"
+    },
+    "createdAt": {
+      "type": "string",
+      "description": "创建时间\t"
+    },
+    "customerActivityId": {
+      "type": "string",
+      "description": "订单创建-市场活动(集客)\t"
+    },
+    "customerAddress": {
+      "type": "string",
+      "description": "潜客地址\t"
+    },
+    "customerBusinessId": {
+      "type": "number",
+      "description": "商机ID\t"
+    },
+    "customerCertificateNo": {
+      "type": "string",
+      "description": "潜客证件号码\t"
+    },
+    "customerCity": {
+      "type": "number",
+      "description": "客户城市\t"
+    },
+    "customerCtCode": {
+      "type": "number",
+      "description": "潜客证件类型\t"
+    },
+    "customerId": {
+      "type": "string",
+      "description": "客户id\t"
+    },
+    "customerMarketActivityName": {
+      "type": "string",
+      "description": "市场活动名称(集客)\t"
+    },
+    "customerName": {
+      "type": "string",
+      "description": "潜客名称\t"
+    },
+    "customerNo": {
+      "type": "string",
+      "description": "客户编号no\t"
+    },
+    "customerProvince": {
+      "type": "number",
+      "description": "客户省份\t"
+    },
+    "customerTel": {
+      "type": "string",
+      "description": "潜客电话\t"
+    },
+    "customerType": {
+      "type": "string",
+      "description": "潜客类型\t"
+    },
+    "deductibleAmount": {
+      "type": "number",
+      "description": "抵扣金额\t"
+    },
+    "deliveryOwnerCode": {
+      "type": "string",
+      "description": "交车经销商\t"
+    },
+    "dispatchedStatus": {
+      "type": "number",
+      "description": "是否配车 14141002：是 14141001：否"
+    },
+    "drawerCertificateNo": {
+      "type": "string",
+      "description": "开票人证件号码\t"
+    },
+    "drawerCtcode": {
+      "type": "number",
+      "description": "开票人证件类型\t"
+    },
+    "drawerName": {
+      "type": "string",
+      "description": "开票人姓名\t"
+    },
+    "drawerNewCtcode": {
+      "type": "number",
+      "description": "开票人证件类型\t"
+    },
+    "drawerTel": {
+      "type": "string",
+      "description": "开票人电话\t"
+    },
+    "equityPackageList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "serviceCode": {
+            "type": "string",
+            "description": "权益包代码"
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "权益包id"
+          },
+          "serviceName": {
+            "type": "string",
+            "description": "权益包名称"
+          },
+          "servicePrice": {
+            "type": "number",
+            "description": "权益包价格"
+          },
+          "serviceType": {
+            "type": "number",
+            "description": "权益包费用类型"
+          },
+          "feeCalcMethod": {
+            "type": "string",
+            "description": "权益计算方式(按比例:91261001 按金额:91261002)"
+          },
+          "feeCalcMethodText": {
+            "type": "string",
+            "description": "权益计算方式"
+          },
+          "equityPackageCategory": {
+            "type": "string",
+            "description": "权益包类型(增值型:91271001 折扣型:91271002)"
+          },
+          "equityPackageCategoryText": {
+            "type": "string",
+            "description": "权益包类型"
+          },
+          "costRatio": {
+            "type": "string",
+            "description": "费用比例%，当费用计算方式为按比例时使用"
+          },
+          "matchType": {
+            "type": "string",
+            "description": "匹配类型(按vin:91281001 按车型:91281002)"
+          },
+          "matchTypeText": {
+            "type": "string",
+            "description": "匹配类型"
+          }
+        },
+        "required": [
+          "serviceCode",
+          "serviceId",
+          "serviceName",
+          "servicePrice",
+          "serviceType",
+          "feeCalcMethod",
+          "feeCalcMethodText",
+          "equityPackageCategory",
+          "equityPackageCategoryText",
+          "costRatio",
+          "matchType",
+          "matchTypeText"
+        ]
+      },
+      "description": "C端权益包\t"
+    },
+    "firstId": {
+      "type": "string",
+      "description": "第一级ID(如：品牌)\t"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "第一级name\t"
+    },
+    "fourId": {
+      "type": "string",
+      "description": "第四级ID\t"
+    },
+    "fourName": {
+      "type": "string",
+      "description": "第四级name\t"
+    },
+    "fourthCode": {
+      "type": "string",
+      "description": "第四级Code\t"
+    },
+    "gender": {
+      "type": "number",
+      "description": "性别\t"
+    },
+    "isApp": {
+      "type": "number",
+      "description": "是否小程序订单\t"
+    },
+    "isClearing": {
+      "type": "number",
+      "description": "是否结清：是10041001,否10041002\t"
+    },
+    "isDeposit": {
+      "type": "number",
+      "description": "是否支付订金 已付定金：10041001 未付定金：10041002 已付意向金：10421009 未付意向金：10421008 退款受理：70961001 退款中：70961002"
+    },
+    "materialId": {
+      "type": "string",
+      "description": "物料ID\t"
+    },
+    "materialLevel": {
+      "type": "number",
+      "description": "物料级别\t"
+    },
+    "memberId": {
+      "type": "string",
+      "description": "下单人openId\t"
+    },
+    "mobilePhone": {
+      "type": "string",
+      "description": "联系人手机号码\t"
+    },
+    "optionId": {
+      "type": "string",
+      "description": "选装包id"
+    },
+    "optionNames": {
+      "type": "string",
+      "description": "选装名字拼接(给app用)\t"
+    },
+    "optionType": {
+      "type": "number",
+      "description": "选装类型（optionType）\t"
+    },
+    "orderAllAmount": {
+      "type": "number",
+      "description": "客户订单总金额\t"
+    },
+    "overchargeStatus": {
+      "type": "number",
+      "description": "是否超收\t"
+    },
+    "ownerCode": {
+      "type": "string",
+      "description": "经销商到吗\t"
+    },
+    "packageId": {
+      "type": "string",
+      "description": "选装包id\t"
+    },
+    "packageName": {
+      "type": "string",
+      "description": "选装包name\t"
+    },
+    "payMode": {
+      "type": "number",
+      "description": "付款方式： 14261001：全款 14261002：分期 14261003：未告知"
+    },
+    "payOff": {
+      "type": "boolean",
+      "description": "是否结清\tture结清 false微结清"
+    },
+    "paymentStatus": {
+      "type": "number",
+      "description": "收款状态(1551)\t"
+    },
+    "personalityOptionsId": {
+      "type": "string",
+      "description": "个性选装\t"
+    },
+    "personalityOptionsName": {
+      "type": "string",
+      "description": "个性选装 - 名\t"
+    },
+    "purchasePhone": {
+      "type": "string",
+      "description": "下单人手机号\t"
+    },
+    "purchaseRights": {
+      "type": "string",
+      "description": "购车权益\t"
+    },
+    "purchassCode": {
+      "type": "number",
+      "description": "订单购买类型\t"
+    },
+    "remark": {
+      "type": "string",
+      "description": "订单备注 限36字\t"
+    },
+    "returnReason": {
+      "type": "string",
+      "description": "退单原因\t"
+    },
+    "returnRemark": {
+      "type": "string",
+      "description": "退单备注\t"
+    },
+    "saleType": {
+      "type": "number",
+      "description": "订单销售类型："
+    },
+    "salesVin": {
+      "type": "string",
+      "description": "vin"
+    },
+    "secondCode": {
+      "type": "string",
+      "description": "第二级Code\t"
+    },
+    "secondId": {
+      "type": "string",
+      "description": "第二级ID（series）\t"
+    },
+    "secondName": {
+      "type": "string",
+      "description": "第二级name\t"
+    },
+    "serviceCode": {
+      "type": "string",
+      "description": "服务代码\t"
+    },
+    "serviceId": {
+      "type": "number",
+      "description": "服务id\t"
+    },
+    "serviceName": {
+      "type": "string",
+      "description": "服务名称\t"
+    },
+    "servicePrice": {
+      "type": "number",
+      "description": "服务价格\t"
+    },
+    "serviceType": {
+      "type": "number",
+      "description": "服务类型\t"
+    },
+    "sheetCreatedBy": {
+      "type": "string",
+      "description": "开单人\t"
+    },
+    "signatureId": {
+      "type": "string",
+      "description": "流程Id\t"
+    },
+    "signatureStatus": {
+      "type": "string",
+      "description": "电签状态\t"
+    },
+    "signatureUrl": {
+      "type": "string",
+      "description": "电子签url\t"
+    },
+    "soNo": {
+      "type": "string",
+      "description": "客户订单编号\t"
+    },
+    "soNoId": {
+      "type": "string",
+      "description": "客户订单id\t"
+    },
+    "soStatus": {
+      "type": "number",
+      "description": "B端订单状态："
+    },
+    "soVinId": {
+      "type": "string",
+      "description": "销售订单id\t"
+    },
+    "statusMark": {
+      "type": "number",
+      "description": "状态标记\t"
+    },
+    "submitTime": {
+      "type": "string",
+      "description": "提交时间\t"
+    },
+    "subsidyPrice": {
+      "type": "number",
+      "description": "国补价\t"
+    },
+    "thirdId": {
+      "type": "string",
+      "description": "第三级ID\t"
+    },
+    "thirdName": {
+      "type": "string",
+      "description": "第三级name\t"
+    },
+    "trimColorId": {
+      "type": "string",
+      "description": "内饰色\t"
+    },
+    "trimColorName": {
+      "type": "string",
+      "description": "选装颜色name\t"
+    },
+    "trimColorType": {
+      "type": "number",
+      "description": "内饰类型\t"
+    },
+    "vehicleDealAllAmount": {
+      "type": "number",
+      "description": "车辆成交总价\t"
+    },
+    "vehicleRetailAllAmount": {
+      "type": "number",
+      "description": "车辆零售总价【改为车厂指导价】\t"
+    },
+    "vin": {
+      "type": "string",
+      "description": "车辆vin\t"
+    },
+    "intentionAmount": {
+      "type": "number",
+      "description": "意向金\t"
+    },
+    "approvalStatus": {
+      "type": "string",
+      "description": "审批状态\t"
+    },
+    "receiveAmount": {
+      "type": "number",
+      "description": "已收款金额\t"
+    },
+    "additionPay": {
+      "type": "boolean",
+      "description": "是否是差额支付定金\t"
+    },
+    "additionPayAmount": {
+      "type": "number",
+      "description": "定金差额\t"
+    },
+    "enableUpdate": {
+      "type": "boolean",
+      "description": "C端-订单是否可修改\t"
+    },
+    "enableCancel": {
+      "type": "boolean",
+      "description": "C端-订单是否可取消\t"
+    },
+    "pyment_version": {
+      "type": "number",
+      "description": "支付版本\t"
+    },
+    "firstContractSignStatus": {
+      "type": "string",
+      "description": "C端-销售合同签署状态(true:已签署 false:未签署)\t"
+    },
+    "saleModeType": {
+      "type": "number",
+      "description": "1.直售订单 2.零售订单\t"
+    },
+    "depositAmount": {
+      "type": "number",
+      "description": "(零售)订金金额（分）\t"
+    },
+    "depositPaymentStatus": {
+      "type": "number",
+      "description": "(零售)订金支付状态 8800\t"
+    },
+    "orderNo": {
+      "type": "string",
+      "description": "(零售)支付单号\t"
+    },
+    "modelId": {
+      "type": "string",
+      "description": "(零售)车型id\t"
+    },
+    "modelName": {
+      "type": "string",
+      "description": "(零售)车型名称\t"
+    },
+    "configuration": {
+      "type": "string",
+      "description": "(零售)配置id\t"
+    },
+    "appearance": {
+      "type": "string",
+      "description": "(零售)外色id\t"
+    },
+    "interior": {
+      "type": "string",
+      "description": "(零售)内饰id\t"
+    },
+    "officialDealerName": {
+      "type": "string",
+      "description": "(零售)经销商名称\t"
+    },
+    "addressZh": {
+      "type": "string",
+      "description": "(零售)经销商地址\t"
+    },
+    "payStatus": {
+      "type": "string",
+      "description": "(零售)支付状态(支付中心)\t"
+    },
+    "payStatusCn": {
+      "type": "string",
+      "description": "(零售)支付状态中文(支付中心)\t"
+    },
+    "createTime": {
+      "type": "string",
+      "description": "(零售)创建时间\t"
+    },
+    "orderStatus": {
+      "type": "string",
+      "description": "(直售)订单状态\t"
+    },
+    "acquiringMerchantNumber": {
+      "type": "string",
+      "description": "收款商户号\t"
+    },
+    "contractedMerchantName": {
+      "type": "string",
+      "description": "支付渠道签约商户名\t"
+    },
+    "customerPhone": {
+      "type": "string",
+      "description": "(零售)客户手机号\t"
+    },
+    "depositPayWay": {
+      "type": "number",
+      "description": "(零售)订金支付方式\t"
+    },
+    "refundSuccessTime": {
+      "type": "string",
+      "description": "(零售)退款完成时间（yyyy-MM-dd HH:mm:ss）\t"
+    },
+    "refundType": {
+      "type": "number",
+      "description": "(零售)退款类型\t"
+    },
+    "paidTime": {
+      "type": "string",
+      "description": "(零售)订金支付完成完成时间（yyyy-MM-dd HH:mm:ss）\t"
+    },
+    "optionList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "optionPrice": {
+            "type": "string",
+            "description": "选装包价格"
+          },
+          "optionType": {
+            "type": "string",
+            "description": "选装包类型"
+          },
+          "optionName": {
+            "type": "string",
+            "description": "选装包名称"
+          }
+        },
+        "required": [
+          "optionPrice",
+          "optionType",
+          "optionName"
+        ]
+      },
+      "description": "(直售)选装包\t"
+    },
+    "pcImageUrl": {
+      "type": "string",
+      "description": "外观车色图\t"
+    },
+    "configCode": {
+      "type": "string",
+      "description": "配置编码\t"
+    },
+    "modelYear": {
+      "type": "string",
+      "description": "车型年款\t"
+    },
+    "firstDepositDate": {
+      "type": "string",
+      "description": "第一次支付定金时间yyyy-MM-dd HH:mm:ss\t"
+    },
+    "lastDepositDate": {
+      "type": "string",
+      "description": "最新一次定金支付时间yyyy-MM-dd HH:mm:ss\t"
+    },
+    "colorCode": {
+      "type": "string",
+      "description": "外色代码\t"
+    },
+    "directSalesOptionList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "soVinId": {
+            "type": "number",
+            "description": "销售订单id"
+          },
+          "optionId": {
+            "type": "string",
+            "description": "选装id"
+          },
+          "optionType": {
+            "type": "string",
+            "description": "选装包类型： 10801001->内饰  10801002->外色 10801003->选装包(多个)"
+          }
+        },
+        "required": [
+          "soVinId",
+          "optionId",
+          "optionType"
+        ]
+      },
+      "description": "直售订单选装包集合\t"
+    },
+    "intentionalDeposit": {
+      "type": "number",
+      "description": "零售订单意向金金额\t"
+    },
+    "intentionalDepositTime": {
+      "type": "string",
+      "description": "零售订单意向金支付时间\t"
+    },
+    "briefActivityId": {
+      "type": "number",
+      "description": "短促主表ID\t"
+    },
+    "briefActivityGroup": {
+      "type": "string",
+      "description": "短促活动批次\t"
+    }
+  }
+}

@@ -18,6 +18,12 @@ import cn.link.swagger.newbie.retail.SmallOrderQueryDTO;
 import cn.link.swagger.newbie.retail.TcStrongWeakAgentVO;
 import cn.link.swagger.newbie.retail.importClazz.ImportResultDto;
 import cn.link.swagger.newbie.retail.refund.QueryRetailOrderDTO;
+import cn.link.swagger.newbie.vehicle.ModelStorageMappingDTO;
+import cn.link.swagger.newbie.vehicle.ModelStorageMappingVO;
+import cn.link.swagger.newbie.vehicle.SmartTransferAggregationVO;
+import cn.link.swagger.newbie.vehicle.VehicleRemarkDTO;
+import cn.link.swagger.newbie.vehicle.VehicleRemarkVO;
+import cn.link.swagger.newbie.vehicle.VehicleTransferApplyInfoDTO;
 import cn.link.swagger.utils.StreamUtils;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -431,12 +437,77 @@ public class SwaggerController {
     /**
      * 新增订单取消原因
      */
-    @PostMapping("/order/cancelReason/save")
-    @ApiOperation("新增订单取消原因")
-    public RestResultResponse<Boolean> saveOrderCancelReasons(@ApiParam(name = "订单取消原因DTO", value = "订单取消原因DTO")
-                                          @RequestBody @Validated OrderCancelReasonsParamDTO orderCancelReasonsParamDTO) {
+    //@PostMapping("/order/cancelReason/save")
+    //@ApiOperation("新增订单取消原因")
+    //public RestResultResponse<Boolean> saveOrderCancelReasons(@ApiParam(name = "订单取消原因DTO", value = "订单取消原因DTO")
+    //                                      @RequestBody @Validated OrderCancelReasonsParamDTO orderCancelReasonsParamDTO) {
+    //    return null;
+    //}
+
+
+    ///**
+    // * 保存或更新车辆资源备注
+    // */
+    //@ApiOperation("保存或更新车辆资源备注")
+    //@PostMapping("/vehicleResource/remark/save")
+    //public RestResultResponse<Boolean> saveOrUpdateVehicleResourceRemark(@RequestBody VehicleRemarkDTO vehicleRemarkDTO) {
+    //    return null;
+    //}
+
+    /**
+     * 新增调配申请
+     */
+    //@ApiOperation(value = "新增调配申请")
+    //@PostMapping("/vehicleResource/transferApply/add")
+    //public boolean addTransferApply(@RequestBody VehicleTransferApplyInfoDTO vehicleTransferApplyInfoDTO) {
+    //    return true;
+    //}
+
+    ///**
+    // * 当月管线资源备注
+    // */
+    //@ApiOperation("当月管线资源备注")
+    //@PostMapping("/vehicleResource/remark/{generalOrderNo}")
+    //public RestResultResponse<VehicleRemarkVO> getRemarkByGeneralOrderNo(@PathVariable("generalOrderNo") String generalOrderNo) {
+    //    return null;
+    //}
+
+    ///**
+    // * 车型与总部库对应关系 - 单个查询（编辑回显）
+    // */
+    //@ApiOperation(value = "车型与总部库对应关系 - 单个查询（编辑回显）")
+    //@GetMapping("/transferLibrary/modelStorageMapping/detail/{id}")
+    //public RestResultResponse<ModelStorageMappingVO> getModelStorageMappingById(@PathVariable("id") @ApiParam("车型与总部库对应关系主键") Long id){
+    //    return null;
+    //}
+
+    /**
+     * 车型与总部库对应关系 - 新增
+     */
+    //@ApiOperation(value = "车型与总部库对应关系 - 新增/编辑")
+    //@PostMapping("/transferLibrary/modelStorageMapping/saveOrUpdate")
+    //public RestResultResponse<Boolean> saveModelStorageMapping(@Validated @RequestBody ModelStorageMappingDTO modelStorageMappingDTO){
+    //    return null;
+    //}
+    //
+    ///**
+    // * 车型与总部库对应关系 - 分页查询
+    // */
+    //@ApiOperation(value = "车型与总部库对应关系 - 分页查询")
+    //@GetMapping("/transferLibrary/modelStorageMapping/page")
+    //public RestResultResponse<IPage<ModelStorageMappingVO>> pageModelStorageMapping(ModelStorageMappingDTO modelStorageMappingDTO){
+    //    return null;
+    //}
+
+    /**
+     * 智能补库看板汇总
+     */
+    @ApiOperation(value = "智能补库看板汇总")
+    @GetMapping("/transferLibrary/smartTransfer/aggregation")
+    public RestResultResponse<List<SmartTransferAggregationVO>> smartTransferAggregation() {
         return null;
     }
+
 
     //}
     //public static void main(String[] args) throws Exception {
