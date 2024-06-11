@@ -21,6 +21,7 @@ import cn.link.swagger.newbie.retail.refund.QueryRetailOrderDTO;
 import cn.link.swagger.newbie.vehicle.ModelStorageMappingDTO;
 import cn.link.swagger.newbie.vehicle.ModelStorageMappingVO;
 import cn.link.swagger.newbie.vehicle.SmartTransferAggregationVO;
+import cn.link.swagger.newbie.vehicle.TransferLibraryCalculateVO;
 import cn.link.swagger.newbie.vehicle.VehicleRemarkDTO;
 import cn.link.swagger.newbie.vehicle.VehicleRemarkVO;
 import cn.link.swagger.newbie.vehicle.VehicleTransferApplyInfoDTO;
@@ -502,9 +503,18 @@ public class SwaggerController {
     /**
      * 智能补库看板汇总
      */
-    @ApiOperation(value = "智能补库看板汇总")
-    @GetMapping("/transferLibrary/smartTransfer/aggregation")
-    public RestResultResponse<List<SmartTransferAggregationVO>> smartTransferAggregation() {
+    //@ApiOperation(value = "智能补库看板汇总")
+    //@GetMapping("/transferLibrary/smartTransfer/aggregation")
+    //public RestResultResponse<List<SmartTransferAggregationVO>> smartTransferAggregation() {
+    //    return null;
+    //}
+
+    /**
+     * 智能补库看板计算
+     */
+    @ApiOperation(value = "智能补库看板计算")
+    @GetMapping("/transferLibrary/smartTransfer/calculate")
+    public List<TransferLibraryCalculateVO> smartTransferCalculate(@ApiParam(name = "车型id", value = "modelId") @RequestParam("modelId") Long modelId) {
         return null;
     }
 

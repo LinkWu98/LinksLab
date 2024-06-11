@@ -19,21 +19,34 @@
         }
     ],
     "paths": {
-        "/swagger/transferLibrary/smartTransfer/aggregation": {
+        "/swagger/transferLibrary/smartTransfer/calculate": {
             "get": {
                 "tags": [
                     "swagger-controller"
                 ],
-                "summary": "智能补库看板汇总",
-                "operationId": "smartTransferAggregationUsingGET",
+                "summary": "智能补库看板计算",
+                "operationId": "smartTransferCalculateUsingGET",
                 "produces": [
                     "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "车型id",
+                        "in": "query",
+                        "description": "modelId",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/RestResultResponse«List«分转仓智能补库汇总VO»»"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/分转仓智能补库明细看板VO"
+                            }
                         }
                     },
                     "401": {
@@ -50,54 +63,171 @@
         }
     },
     "definitions": {
-        "RestResultResponse«List«分转仓智能补库汇总VO»»": {
+        "分转仓智能补库大区明细VO": {
             "type": "object",
             "properties": {
-                "data": {
+                "regionalCodeId": {
+                    "type": "string",
+                    "description": "销售大区codeId"
+                },
+                "regionalColorDetailList": {
                     "type": "array",
+                    "description": "分转仓智能补库当前大区计算详情VO",
                     "items": {
-                        "$ref": "#/definitions/分转仓智能补库汇总VO"
+                        "$ref": "#/definitions/分转仓智能补库大区计算外色内饰详情VO"
                     }
                 },
-                "elapsedMilliseconds": {
-                    "type": "integer",
-                    "format": "int64"
+                "regionalName": {
+                    "type": "string",
+                    "description": "销售大区名称"
                 },
-                "errMsg": {
-                    "type": "string"
-                },
-                "resultCode": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "success": {
-                    "type": "boolean"
+                "regionalTotalVO": {
+                    "description": "智能补库明细 - 当前大区总计VO",
+                    "$ref": "#/definitions/分转仓智能补库明细通用VO"
                 }
             },
-            "title": "RestResultResponse«List«分转仓智能补库汇总VO»»"
+            "title": "分转仓智能补库大区明细VO"
         },
-        "分转仓智能补库汇总VO": {
+        "分转仓智能补库大区计算外色内饰详情VO": {
             "type": "object",
             "properties": {
-                "modelId": {
+                "afterAdjustmentSum": {
+                    "type": "number",
+                    "description": "分转后零售支持度-手工调整前总库存"
+                },
+                "afterAdjustmentTransferSum": {
+                    "type": "number",
+                    "description": "分转后零售支持度-手工调整前分转库"
+                },
+                "afterInventorySum": {
+                    "type": "number",
+                    "description": "分转后库存-总库存"
+                },
+                "afterSaleSum": {
+                    "type": "number",
+                    "description": "分转后零售支持度-总库存零售支持度"
+                },
+                "afterSaleTransferSum": {
+                    "type": "number",
+                    "description": "分转后零售支持度-分转库零售支持度"
+                },
+                "afterTransferSum": {
+                    "type": "number",
+                    "description": "分转后库存-分转库库存"
+                },
+                "averageMonthlySales": {
+                    "type": "number",
+                    "description": "实销-月均实销"
+                },
+                "awaitingTransshipment": {
+                    "type": "number",
+                    "description": "零售支持度-待转运"
+                },
+                "beforeInventorySum": {
+                    "type": "number",
+                    "description": "分转前库存满足度-总库存"
+                },
+                "beforeTransferSum": {
+                    "type": "number",
+                    "description": "分转前库存满足度-分转库"
+                },
+                "colorId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "外色ID"
+                },
+                "colorName": {
                     "type": "string",
-                    "description": "车型id"
+                    "description": "外色名称"
+                },
+                "currentRetailSupport": {
+                    "type": "number",
+                    "description": "零售支持度-零售支持度深度标准"
+                },
+                "dealerSum": {
+                    "type": "number",
+                    "description": "当前库存情况-经销商库存"
+                },
+                "displayRank": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "展示顺序"
+                },
+                "inventoryCalculationSum": {
+                    "type": "number",
+                    "description": "零售支持度-库存测算总库存"
+                },
+                "inventorySum": {
+                    "type": "number",
+                    "description": "当前库存情况-总库存"
+                },
+                "manualAdjustment": {
+                    "type": "number",
+                    "description": "零售支持度-手工调整"
+                },
+                "salesProportion": {
+                    "type": "number",
+                    "description": "实销-销量占比"
+                },
+                "transferSum": {
+                    "type": "number",
+                    "description": "当前库存情况-分转库"
+                },
+                "transshipmentVolume": {
+                    "type": "number",
+                    "description": "零售支持度-转运量"
+                },
+                "trimId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "内饰ID"
+                },
+                "trimName": {
+                    "type": "string",
+                    "description": "内饰名称"
+                }
+            },
+            "title": "分转仓智能补库大区计算外色内饰详情VO"
+        },
+        "分转仓智能补库明细看板VO": {
+            "type": "object",
+            "properties": {
+                "configId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "配置id"
+                },
+                "configName": {
+                    "type": "string",
+                    "description": "配置名称"
+                },
+                "currentRetailSupport": {
+                    "type": "number",
+                    "description": "零售支持度深度标准"
+                },
+                "headStockInfoVO": {
+                    "description": "智能补库明细 - 总部库VO",
+                    "$ref": "#/definitions/智能补库明细 - 总部库"
                 },
                 "modelName": {
                     "type": "string",
                     "description": "车型名称"
                 },
-                "smartTransferAggregationDetailVO": {
+                "regionalDetailList": {
                     "type": "array",
-                    "description": "智能补库汇总车型详情VO",
+                    "description": "智能补库明细 - 各大区计算明细List",
                     "items": {
-                        "$ref": "#/definitions/智能补库汇总车型详情VO"
+                        "$ref": "#/definitions/分转仓智能补库大区明细VO"
                     }
+                },
+                "totalVO": {
+                    "description": "智能补库明细 - 总计VO",
+                    "$ref": "#/definitions/分转仓智能补库明细通用VO"
                 }
             },
-            "title": "分转仓智能补库汇总VO"
+            "title": "分转仓智能补库明细看板VO"
         },
-        "智能补库汇总车型详情VO": {
+        "分转仓智能补库明细通用VO": {
             "type": "object",
             "properties": {
                 "afterAdjustmentSum": {
@@ -148,11 +278,6 @@
                     "type": "number",
                     "description": "当前库存情况-经销商库存"
                 },
-                "displayRank": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "展示顺序"
-                },
                 "inventoryCalculationSum": {
                     "type": "number",
                     "description": "零售支持度-库存测算总库存"
@@ -164,10 +289,6 @@
                 "manualAdjustment": {
                     "type": "number",
                     "description": "零售支持度-手工调整"
-                },
-                "regionalName": {
-                    "type": "string",
-                    "description": "销售大区名称"
                 },
                 "salesProportion": {
                     "type": "number",
@@ -182,7 +303,65 @@
                     "description": "零售支持度-转运量"
                 }
             },
-            "title": "智能补库汇总车型详情VO"
+            "title": "分转仓智能补库明细通用VO"
+        },
+        "智能补库明细 - 总部库": {
+            "type": "object",
+            "properties": {
+                "afterTransferSum": {
+                    "type": "number",
+                    "description": "总计 - 分转后总部库统计"
+                },
+                "beforeTransferSum": {
+                    "type": "number",
+                    "description": "总计 - 分转前总部库统计"
+                },
+                "detailList": {
+                    "type": "array",
+                    "description": "外色/内饰分转前后明细",
+                    "items": {
+                        "$ref": "#/definitions/智能补库明细 - 总部库 - 外色/内饰分转前后明细"
+                    }
+                }
+            },
+            "title": "智能补库明细 - 总部库"
+        },
+        "智能补库明细 - 总部库 - 外色/内饰分转前后明细": {
+            "type": "object",
+            "properties": {
+                "afterTransferSum": {
+                    "type": "number",
+                    "description": "分转后总部库统计"
+                },
+                "beforeTransferSum": {
+                    "type": "number",
+                    "description": "分转前总部库统计"
+                },
+                "colorId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "外色ID"
+                },
+                "colorName": {
+                    "type": "string",
+                    "description": "外色名称"
+                },
+                "displayRank": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "展示顺序，外色会按此排序"
+                },
+                "trimId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "内饰ID"
+                },
+                "trimName": {
+                    "type": "string",
+                    "description": "内饰名称"
+                }
+            },
+            "title": "智能补库明细 - 总部库 - 外色/内饰分转前后明细"
         }
     }
 }
